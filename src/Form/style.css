@@ -2,12 +2,6 @@
   width: 400px;
 }
 
-@media screen and (max-width: 399px) {
-  .form {
-    border-radius: 0;
-  }
-}
-
 .form__fieldset {
   margin: 0;
   border: 0;
@@ -16,6 +10,13 @@
   background-color: #fff;
   box-shadow: 0 0 8px 0 rgb(34 34 34 / 20%), 0 0 20px 0 rgb(34 34 34 / 20%);
 }
+
+@media screen and (max-width: 399px) {
+  .form__fieldset {
+    border-radius: 0;
+  }
+}
+
 .form__legend {
   color: #fff;
   text-align: center;
