@@ -1,5 +1,9 @@
+import Form from "./Form";
+
 function App() {
-  return <div style={{backgroundColor: "#fff", padding: "20px", borderRadius: "10px"}}>Hello world!</div>;
+  return (
+        <Form />
+  );
 }
 
 export default App;
