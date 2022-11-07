@@ -1,7 +1,10 @@
+import { useState } from "react";
 import "./style.css";
 import { currencies } from "../currencies.js";
 
 const Form = () => {
+  const [sourceCurrency, setSourceCurrency] = useState(currencies[0].code);
+  const [targetCurrency, setTargetCurrency] = useState(currencies[1].code);
   return (
     <form className="form">
       <fieldset className="form__fieldset">
@@ -17,16 +20,20 @@ const Form = () => {
           </div>
           <div className="form__col">
             <div className="form__row">
-              <label htmlFor="from-currency" className="form__label">
+              <label htmlFor="source-currency" className="form__label">
                 Przelicz z
               </label>
               <div className="form__select-box">
-                <select id="from-currency" className="form__select">
-                  {currencies.map(({ code }) => (
-                    <option key={code} value={code}>
-                      {code}
-                    </option>
-                  ))}
+                <select
+                  id="source-currency"
+                  className="form__select"
+                  value={sourceCurrency}
+                  onChange={({ target }) => setSourceCurrency(target.value)}>
+                    {currencies.map(({ code }) => (
+                      <option key={code} value={code}>
+                        {code}
+                      </option>
+                    ))}
                 </select>
                 <p className="form__caption"></p>
               </div>
@@ -37,16 +44,20 @@ const Form = () => {
               </p>
             </div>
             <div className="form__row">
-              <label htmlFor="to-currency" className="form__label">
+              <label htmlFor="target-currency" className="form__label">
                 Przelicz na
               </label>
               <div className="form__select-box">
-                <select id="to-currency" className="form__select">
-                  {currencies.map(({ code }) => (
-                    <option key={code} value={code}>
-                      {code}
-                    </option>
-                  ))}
+                <select
+                  id="target-currency"
+                  className="form__select"
+                  value={targetCurrency}
+                  onChange={({ target }) => setTargetCurrency(target.value)}>
+                    {currencies.map(({ code }) => (
+                      <option key={code} value={code}>
+                        {code}
+                      </option>
+                    ))}
                 </select>
                 <p className="form__caption"></p>
               </div>
