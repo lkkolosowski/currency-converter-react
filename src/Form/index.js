@@ -5,6 +5,7 @@ import { currencies } from "../currencies.js";
 const Form = () => {
   const [sourceCurrency, setSourceCurrency] = useState(currencies[0].code);
   const [targetCurrency, setTargetCurrency] = useState(currencies[1].code);
+  const [amount, setAmount] = useState("1");
   return (
     <form className="form">
       <fieldset className="form__fieldset">
@@ -16,7 +17,13 @@ const Form = () => {
             <label htmlFor="amount" className="form__label">
               Wprowadź ilość
             </label>
-            <input type="number" id="amount" className="form__input" value="1" />
+            <input
+              type="number"
+              id="amount"
+              className="form__input"
+              value={amount}
+              onChange={ ({target}) => setAmount(target.value)}
+            />
           </div>
           <div className="form__col">
             <div className="form__row">
