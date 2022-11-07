@@ -18,16 +18,16 @@ const Form = () => {
           Konwerter walutowy
         </legend>
         <div className="form__wrapper">
-            <label htmlFor="amount" className="form__label">
-              Wprowadź ilość
-            </label>
-            <input
-              type="number"
-              id="amount"
-              className="form__input"
-              value={amount}
-              onChange={ ({target}) => setAmount(target.value)}
-            />
+          <label htmlFor="amount" className="form__label">
+            Wprowadź ilość
+          </label>
+          <input
+            type="number"
+            id="amount"
+            className="form__input"
+            value={amount}
+            onChange={ ({target}) => setAmount(target.value)}
+          />
           <div className="form__col">
             <div className="form__row">
               <label htmlFor="source-currency" className="form__label">
