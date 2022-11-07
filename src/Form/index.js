@@ -6,8 +6,13 @@ const Form = () => {
   const [sourceCurrency, setSourceCurrency] = useState(currencies[0].code);
   const [targetCurrency, setTargetCurrency] = useState(currencies[1].code);
   const [amount, setAmount] = useState("1");
+
+  const onSubmit = (event) => {
+    event.preventDefault();
+  }
+
   return (
-    <form className="form">
+    <form className="form" onSubmit={onSubmit}>
       <fieldset className="form__fieldset">
         <legend align="center" className="form__legend">
           Konwerter walutowy
