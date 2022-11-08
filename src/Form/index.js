@@ -9,7 +9,7 @@ const Form = () => {
 
   const onSubmit = (event) => {
     event.preventDefault();
-  }
+  };
 
   return (
     <form className="form" onSubmit={onSubmit}>
@@ -26,7 +26,7 @@ const Form = () => {
             id="amount"
             className="form__input"
             value={amount}
-            onChange={ ({target}) => setAmount(target.value)}
+            onChange={({ target }) => setAmount(target.value)}
           />
           <div className="form__col">
             <div className="form__row">
@@ -34,17 +34,22 @@ const Form = () => {
                 Przelicz z
               </label>
               <div className="form__select-box">
-                <img class="form__image" src={`https://flagicons.lipis.dev/flags/4x3/${sourceCurrency.flag}.svg`} alt="flag" />
+                <img
+                  class="form__image"
+                  src={`https://flagicons.lipis.dev/flags/4x3/${sourceCurrency.flag}.svg`}
+                  alt="flag"
+                />
                 <select
                   id="source-currency"
                   className="form__select"
                   value={sourceCurrency.code}
-                  onChange={({ target }) => setSourceCurrency(currencies.find(({code}) => code === target.value))}>
-                    {currencies.map(({ code }) => (
-                      <option key={code} value={code}>
-                        {code}
-                      </option>
-                    ))}
+                  onChange={({ target }) => setSourceCurrency(currencies.find(({ code }) => code === target.value))}
+                >
+                  {currencies.map(({ code }) => (
+                    <option key={code} value={code}>
+                      {code}
+                    </option>
+                  ))}
                 </select>
                 <p className="form__caption">{sourceCurrency.name}</p>
               </div>
@@ -59,17 +64,22 @@ const Form = () => {
                 Przelicz na
               </label>
               <div className="form__select-box">
-              <img class="form__image" src={`https://flagicons.lipis.dev/flags/4x3/${targetCurrency.flag}.svg`} alt="flag" />
+                <img
+                  class="form__image"
+                  src={`https://flagicons.lipis.dev/flags/4x3/${targetCurrency.flag}.svg`}
+                  alt="flag"
+                />
                 <select
                   id="target-currency"
                   className="form__select"
                   value={targetCurrency.code}
-                  onChange={({ target }) => setTargetCurrency(currencies.find(({code}) => code === target.value))}>
-                    {currencies.map(({ code }) => (
-                      <option key={code} value={code}>
-                        {code}
-                      </option>
-                    ))}
+                  onChange={({ target }) => setTargetCurrency(currencies.find(({ code }) => code === target.value))}
+                >
+                  {currencies.map(({ code }) => (
+                    <option key={code} value={code}>
+                      {code}
+                    </option>
+                  ))}
                 </select>
                 <p className="form__caption">{targetCurrency.name}</p>
               </div>
