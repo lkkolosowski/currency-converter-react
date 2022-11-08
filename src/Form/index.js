@@ -3,8 +3,8 @@ import "./style.css";
 import { currencies } from "../currencies.js";
 
 const Form = () => {
-  const [sourceCurrency, setSourceCurrency] = useState(currencies[0].code);
-  const [targetCurrency, setTargetCurrency] = useState(currencies[1].code);
+  const [sourceCurrency, setSourceCurrency] = useState(currencies[0]);
+  const [targetCurrency, setTargetCurrency] = useState(currencies[1]);
   const [amount, setAmount] = useState("1");
 
   const onSubmit = (event) => {
@@ -34,18 +34,19 @@ const Form = () => {
                 Przelicz z
               </label>
               <div className="form__select-box">
+                <img class="form__image" src={`https://flagicons.lipis.dev/flags/4x3/${sourceCurrency.flag}.svg`} alt="flag" />
                 <select
                   id="source-currency"
                   className="form__select"
-                  value={sourceCurrency}
-                  onChange={({ target }) => setSourceCurrency(target.value)}>
+                  value={sourceCurrency.code}
+                  onChange={({ target }) => setSourceCurrency(currencies.find(({code}) => code === target.value))}>
                     {currencies.map(({ code }) => (
                       <option key={code} value={code}>
                         {code}
                       </option>
                     ))}
                 </select>
-                <p className="form__caption"></p>
+                <p className="form__caption">{sourceCurrency.name}</p>
               </div>
             </div>
             <div className="form__row">
@@ -58,18 +59,19 @@ const Form = () => {
                 Przelicz na
               </label>
               <div className="form__select-box">
+              <img class="form__image" src={`https://flagicons.lipis.dev/flags/4x3/${targetCurrency.flag}.svg`} alt="flag" />
                 <select
                   id="target-currency"
                   className="form__select"
-                  value={targetCurrency}
-                  onChange={({ target }) => setTargetCurrency(target.value)}>
+                  value={targetCurrency.code}
+                  onChange={({ target }) => setTargetCurrency(currencies.find(({code}) => code === target.value))}>
                     {currencies.map(({ code }) => (
                       <option key={code} value={code}>
                         {code}
                       </option>
                     ))}
                 </select>
-                <p className="form__caption"></p>
+                <p className="form__caption">{targetCurrency.name}</p>
               </div>
             </div>
           </div>
