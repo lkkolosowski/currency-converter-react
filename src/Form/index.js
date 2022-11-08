@@ -85,8 +85,10 @@ const Form = () => {
               </div>
             </div>
           </div>
-          <p className="form__label">Kurs wymiany</p>
-          <div className="form__result"></div>
+          <label htmlFor="result" className="form__label">
+            Kurs wymiany
+          </label>
+          <input type="number" id="result" disabled className="form__input" />
         </div>
         <p className="form__paragraph form__paragraph--small">Kurs walut został zaktualizowany w dniu 28.09.2022</p>
       </fieldset>
