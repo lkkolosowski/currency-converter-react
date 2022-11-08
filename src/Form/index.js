@@ -35,7 +35,7 @@ const Form = () => {
               </label>
               <div className="form__select-box">
                 <img
-                  class="form__image"
+                  className="form__image"
                   src={`https://flagicons.lipis.dev/flags/4x3/${sourceCurrency.flag}.svg`}
                   alt="flag"
                 />
@@ -65,7 +65,7 @@ const Form = () => {
               </label>
               <div className="form__select-box">
                 <img
-                  class="form__image"
+                  className="form__image"
                   src={`https://flagicons.lipis.dev/flags/4x3/${targetCurrency.flag}.svg`}
                   alt="flag"
                 />
