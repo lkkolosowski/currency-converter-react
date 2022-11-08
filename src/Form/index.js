@@ -88,7 +88,7 @@ const Form = () => {
           <label htmlFor="result" className="form__label">
             Kurs wymiany
           </label>
-          <input type="number" id="result" disabled className="form__input" />
+          <input type="text" id="result" disabled className="form__input" value={`${amount} ${sourceCurrency.code} = ${(amount*targetCurrency.rate/sourceCurrency.rate).toFixed(2)} ${targetCurrency.code}`} />
         </div>
         <p className="form__paragraph form__paragraph--small">Kurs walut został zaktualizowany w dniu 28.09.2022</p>
       </fieldset>
