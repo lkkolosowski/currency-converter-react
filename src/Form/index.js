@@ -11,6 +11,11 @@ const Form = () => {
     event.preventDefault();
   };
 
+  const exchange = () => {
+    setSourceCurrency(targetCurrency);
+    setTargetCurrency(sourceCurrency);
+  }
+
   return (
     <form className="form" onSubmit={onSubmit}>
       <fieldset className="form__fieldset">
@@ -55,7 +60,10 @@ const Form = () => {
               </div>
             </div>
             <div className="form__row">
-              <button className="form__exchange">
+              <button
+                className="form__exchange"
+                onClick={exchange}
+              >
                 <i className="form__exchange-icon fas fa-exchange-alt"></i>
               </button>
             </div>
