@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Result from "./Result";
 import "./style.css";
 import { currencies } from "../currencies.js";
 
@@ -100,8 +99,7 @@ const Form = () => {
             disabled
             className="form__input"
             value=
-              {`${amount} ${sourceCurrency.code} = 
-              ${((amount * targetCurrency.rate) / sourceCurrency.rate).toFixed(2)} ${targetCurrency.code}`}
+              {`${amount} ${sourceCurrency.code} = ${(amount * targetCurrency.rate / sourceCurrency.rate).toFixed(2)} ${targetCurrency.code}`}
           />
         </div>
         <p className="form__paragraph form__paragraph--small">Kurs walut został zaktualizowany w dniu 28.09.2022</p>
