@@ -55,9 +55,9 @@ const Form = () => {
               </div>
             </div>
             <div className="form__row">
-              <p className="form__label">
+              <button className="form__exchange">
                 <i className="form__exchange-icon fas fa-exchange-alt"></i>
-              </p>
+              </button>
             </div>
             <div className="form__row">
               <label htmlFor="target-currency" className="form__label">
