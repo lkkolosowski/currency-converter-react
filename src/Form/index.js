@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Result from "./Result";
 import "./style.css";
 import { currencies } from "../currencies.js";
 
@@ -14,7 +15,7 @@ const Form = () => {
   const exchange = () => {
     setSourceCurrency(targetCurrency);
     setTargetCurrency(sourceCurrency);
-  }
+  };
 
   return (
     <form className="form" onSubmit={onSubmit}>
@@ -60,10 +61,7 @@ const Form = () => {
               </div>
             </div>
             <div className="form__row">
-              <button
-                className="form__exchange"
-                onClick={exchange}
-              >
+              <button className="form__exchange" onClick={exchange}>
                 <i className="form__exchange-icon fas fa-exchange-alt"></i>
               </button>
             </div>
@@ -96,7 +94,15 @@ const Form = () => {
           <label htmlFor="result" className="form__label">
             Kurs wymiany
           </label>
-          <input type="text" id="result" disabled className="form__input" value={`${amount} ${sourceCurrency.code} = ${(amount*targetCurrency.rate/sourceCurrency.rate).toFixed(2)} ${targetCurrency.code}`} />
+          <input
+            type="text"
+            id="result"
+            disabled
+            className="form__input"
+            value=
+              {`${amount} ${sourceCurrency.code} = 
+              ${((amount * targetCurrency.rate) / sourceCurrency.rate).toFixed(2)} ${targetCurrency.code}`}
+          />
         </div>
         <p className="form__paragraph form__paragraph--small">Kurs walut został zaktualizowany w dniu 28.09.2022</p>
       </fieldset>
