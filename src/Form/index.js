@@ -11,6 +11,12 @@ const Form = () => {
     event.preventDefault();
   };
 
+  const preventMinus = (event) => {
+    if (event.code === 'Minus') {
+        event.preventDefault();
+    }
+};
+
   const swapCurrencies = () => {
     setSourceCurrency(targetCurrency);
     setTargetCurrency(sourceCurrency);
@@ -28,10 +34,12 @@ const Form = () => {
           </label>
           <input
             type="number"
+            min="0"
             id="amount"
             className="form__input"
             value={amount}
             onChange={({ target }) => setAmount(target.value)}
+            onKeyPress={preventMinus}
           />
           <div className="form__col">
             <div className="form__row">
