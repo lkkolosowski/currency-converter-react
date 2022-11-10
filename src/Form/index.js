@@ -11,7 +11,7 @@ const Form = () => {
     event.preventDefault();
   };
 
-  const exchange = () => {
+  const swapCurrencies = () => {
     setSourceCurrency(targetCurrency);
     setTargetCurrency(sourceCurrency);
   };
@@ -60,7 +60,7 @@ const Form = () => {
               </div>
             </div>
             <div className="form__row">
-              <button className="form__exchange" onClick={exchange}>
+              <button className="form__exchange" onClick={swapCurrencies}>
                 <i className="form__exchange-icon fas fa-exchange-alt"></i>
               </button>
             </div>
