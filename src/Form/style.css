@@ -95,7 +95,7 @@
   font-size: 12px;
   margin-top: 5px;
 }
-.form__col {
+.form__column {
   display: flex;
   margin-top: 20px;
   align-items: center;
@@ -103,7 +103,7 @@
   flex-wrap: wrap;
 }
 @media screen and (max-width: 319px) {
-  .form__col {
+  .form__column {
     flex-direction: column;
   }
 }
