@@ -11,7 +11,7 @@ const Form = () => {
     event.preventDefault();
   };
 
-  const preventMinus = (event) => {
+  const onKeyPress = (event) => {
     if (event.code === 'Minus') {
         event.preventDefault();
     }
@@ -39,7 +39,7 @@ const Form = () => {
             className="form__input"
             value={amount}
             onChange={({ target }) => setAmount(target.value)}
-            onKeyPress={preventMinus}
+            onKeyPress={onKeyPress}
           />
           <div className="form__col">
             <div className="form__row">
