@@ -41,6 +41,7 @@ const Form = () => {
           <Input
             type="number"
             id="amount"
+            min="0"
             disabled={false}
             value={amount}
             onChange={({ target }) => setAmount(target.value)}

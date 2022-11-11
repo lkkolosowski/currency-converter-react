@@ -1,9 +1,9 @@
-const Input = ({ type, id, disabled, value, onChange, onKeyPress }) => {
+const Input = ({ type, id, min, disabled, value, onChange, onKeyPress }) => {
   return (
       <input
         type={type}
         id={id}
-        min="0"
+        min={min}
         disabled={disabled}
         className="form__input"
         value={value}
