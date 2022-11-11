@@ -12,7 +12,7 @@ const Form = () => {
   };
 
   const onKeyPress = (event) => {
-    if (event.code === 'Minus') {
+    if (event.code === "Minus") {
       event.preventDefault();
     }
   };
