@@ -21,3 +21,9 @@ html {
   font-family: "Montserrat", sans-serif;
   background-color: #f0f2f4;
 }
+
+@media screen and (max-width: 399px) {
+  #root {
+    background: #fff;
+  }
+}
