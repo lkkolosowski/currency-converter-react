@@ -1,3 +1,4 @@
+import Select from "./Select";
 import { useState } from "react";
 import "./style.css";
 import { currencies } from "../currencies.js";
@@ -22,7 +23,8 @@ const Form = () => {
     setTargetCurrency(sourceCurrency);
   };
 
-  let result = `${amount} ${sourceCurrency.code} = ${((amount * targetCurrency.rate) 
+  let result = 
+    `${amount} ${sourceCurrency.code} = ${((amount * targetCurrency.rate) 
     / sourceCurrency.rate).toFixed(2)} ${targetCurrency.code}`;
 
   return (
@@ -55,18 +57,11 @@ const Form = () => {
                   src={`https://flagicons.lipis.dev/flags/4x3/${sourceCurrency.flag}.svg`}
                   alt="flag"
                 />
-                <select
+                <Select
                   id="source-currency"
-                  className="form__select"
                   value={sourceCurrency.code}
                   onChange={({ target }) => setSourceCurrency(currencies.find(({ code }) => code === target.value))}
-                >
-                  {currencies.map(({ code }) => (
-                    <option key={code} value={code}>
-                      {code}
-                    </option>
-                  ))}
-                </select>
+                />
                 <p className="form__caption">{sourceCurrency.name}</p>
               </div>
             </div>
@@ -85,18 +80,11 @@ const Form = () => {
                   src={`https://flagicons.lipis.dev/flags/4x3/${targetCurrency.flag}.svg`}
                   alt="flag"
                 />
-                <select
+                <Select
                   id="target-currency"
-                  className="form__select"
                   value={targetCurrency.code}
                   onChange={({ target }) => setTargetCurrency(currencies.find(({ code }) => code === target.value))}
-                >
-                  {currencies.map(({ code }) => (
-                    <option key={code} value={code}>
-                      {code}
-                    </option>
-                  ))}
-                </select>
+                />
                 <p className="form__caption">{targetCurrency.name}</p>
               </div>
             </div>
