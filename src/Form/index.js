@@ -1,7 +1,5 @@
-import Select from "./Select";
+import SelectBox from "./SelectBox";
 import Input from "./Input";
-import Flag from "./Flag";
-import Caption from "./Caption";
 import { useState } from "react";
 import "./style.css";
 import { currencies } from "../currencies.js";
@@ -52,15 +50,13 @@ const Form = () => {
               <label htmlFor="source-currency" className="form__label">
                 Przelicz z
               </label>
-              <div className="form__select-box">
-                <Flag src={`https://flagicons.lipis.dev/flags/4x3/${sourceCurrency.flag}.svg`} />
-                <Select
-                  id="source-currency"
-                  value={sourceCurrency.code}
-                  onChange={({ target }) => setSourceCurrency(currencies.find(({ code }) => code === target.value))}
-                />
-                <Caption currencyName={sourceCurrency.name} />
-              </div>
+              <SelectBox
+                src={`https://flagicons.lipis.dev/flags/4x3/${sourceCurrency.flag}.svg`}
+                id="source-currency"
+                value={sourceCurrency.code}
+                onChange={({ target }) => setSourceCurrency(currencies.find(({ code }) => code === target.value))}
+                currencyName={sourceCurrency.name}
+              />
             </div>
             <div className="form__row">
               <button className="form__exchange" onClick={swapCurrencies}>
@@ -71,15 +67,13 @@ const Form = () => {
               <label htmlFor="target-currency" className="form__label">
                 Przelicz na
               </label>
-              <div className="form__select-box">
-                <Flag src={`https://flagicons.lipis.dev/flags/4x3/${targetCurrency.flag}.svg`} />
-                <Select
-                  id="target-currency"
-                  value={targetCurrency.code}
-                  onChange={({ target }) => setTargetCurrency(currencies.find(({ code }) => code === target.value))}
-                />
-                <Caption currencyName={targetCurrency.name} />
-              </div>
+              <SelectBox
+                src={`https://flagicons.lipis.dev/flags/4x3/${targetCurrency.flag}.svg`}
+                id="target-currency"
+                value={targetCurrency.code}
+                onChange={({ target }) => setTargetCurrency(currencies.find(({ code }) => code === target.value))}
+                currencyName={targetCurrency.name}
+              />
             </div>
           </div>
           <label htmlFor="result" className="form__label">
