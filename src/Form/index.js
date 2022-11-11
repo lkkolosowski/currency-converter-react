@@ -1,6 +1,7 @@
 import Select from "./Select";
 import Input from "./Input";
 import Image from "./Image";
+import Caption from "./Caption";
 import { useState } from "react";
 import "./style.css";
 import { currencies } from "../currencies.js";
@@ -58,7 +59,7 @@ const Form = () => {
                   value={sourceCurrency.code}
                   onChange={({ target }) => setSourceCurrency(currencies.find(({ code }) => code === target.value))}
                 />
-                <p className="form__caption">{sourceCurrency.name}</p>
+                <Caption currencyName={sourceCurrency.name} />
               </div>
             </div>
             <div className="form__row">
@@ -77,7 +78,7 @@ const Form = () => {
                   value={targetCurrency.code}
                   onChange={({ target }) => setTargetCurrency(currencies.find(({ code }) => code === target.value))}
                 />
-                <p className="form__caption">{targetCurrency.name}</p>
+                <Caption currencyName={targetCurrency.name} />
               </div>
             </div>
           </div>
