@@ -1,5 +1,6 @@
 import SelectBox from "./SelectBox";
 import Input from "./Input";
+import Button from "./Button";
 import { useState } from "react";
 import "./style.css";
 import { currencies } from "../currencies.js";
@@ -59,9 +60,7 @@ const Form = () => {
               />
             </div>
             <div className="form__row">
-              <button className="form__exchange" onClick={swapCurrencies}>
-                <i className="form__exchange-icon fas fa-exchange-alt"></i>
-              </button>
+              <Button onClick={swapCurrencies} />
             </div>
             <div className="form__row">
               <label htmlFor="target-currency" className="form__label">
