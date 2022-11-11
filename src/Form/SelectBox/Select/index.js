@@ -1,4 +1,4 @@
-import { currencies } from "../../currencies.js";
+import { currencies } from "../../../currencies.js";
 
 const Select = ({ id, value, onChange }) => {
   return (

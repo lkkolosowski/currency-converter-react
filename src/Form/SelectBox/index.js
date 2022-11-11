@@ -1,6 +1,6 @@
-import Select from "../Select";
-import Flag from "../Flag";
-import Caption from "../Caption";
+import Select from "./Select";
+import Flag from "./Flag";
+import Caption from "./Caption";
 
 const SelectBox = ({ src, id, value, onChange, currencyName }) => {
   return (
