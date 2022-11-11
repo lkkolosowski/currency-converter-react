@@ -44,7 +44,7 @@ const Form = () => {
             onChange={({ target }) => setAmount(target.value)}
             onKeyPress={onKeyPress}
           />
-          <div className="form__col">
+          <div className="form__column">
             <div className="form__row">
               <label htmlFor="source-currency" className="form__label">
                 Przelicz z
