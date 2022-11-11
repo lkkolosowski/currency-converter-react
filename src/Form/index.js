@@ -24,9 +24,7 @@ const Form = () => {
     setTargetCurrency(sourceCurrency);
   };
 
-  let result = 
-    `${amount} ${sourceCurrency.code} = ${((amount * targetCurrency.rate) 
-    / sourceCurrency.rate).toFixed(2)} ${targetCurrency.code}`;
+  const result = ((amount * targetCurrency.rate) / sourceCurrency.rate).toFixed(2);
 
   return (
     <form className="form" onSubmit={onSubmit}>
@@ -93,7 +91,12 @@ const Form = () => {
           <label htmlFor="result" className="form__label">
             Kurs wymiany
           </label>
-          <Input type="text" id="result" disabled={true} value={result} />
+          <Input
+            type="text"
+            id="result"
+            disabled={true}
+            value={`${amount} ${sourceCurrency.code} = ${result} ${targetCurrency.code}`}
+          />
         </div>
         <p className="form__paragraph form__paragraph--small">Kurs walut został zaktualizowany w dniu 28.09.2022</p>
       </fieldset>
