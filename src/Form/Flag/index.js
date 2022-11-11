@@ -1,7 +1,7 @@
-const Image = ({ src }) => {
+const Flag = ({ src }) => {
   return (
     <img className="form__image" src={src} alt="flag" />
   );
 };
 
-export default Image;
+export default Flag;

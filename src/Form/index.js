@@ -1,6 +1,6 @@
 import Select from "./Select";
 import Input from "./Input";
-import Image from "./Image";
+import Flag from "./Flag";
 import Caption from "./Caption";
 import { useState } from "react";
 import "./style.css";
@@ -53,7 +53,7 @@ const Form = () => {
                 Przelicz z
               </label>
               <div className="form__select-box">
-                <Image src={`https://flagicons.lipis.dev/flags/4x3/${sourceCurrency.flag}.svg`} />
+                <Flag src={`https://flagicons.lipis.dev/flags/4x3/${sourceCurrency.flag}.svg`} />
                 <Select
                   id="source-currency"
                   value={sourceCurrency.code}
@@ -72,7 +72,7 @@ const Form = () => {
                 Przelicz na
               </label>
               <div className="form__select-box">
-                <Image src={`https://flagicons.lipis.dev/flags/4x3/${targetCurrency.flag}.svg`} />
+                <Flag src={`https://flagicons.lipis.dev/flags/4x3/${targetCurrency.flag}.svg`} />
                 <Select
                   id="target-currency"
                   value={targetCurrency.code}
