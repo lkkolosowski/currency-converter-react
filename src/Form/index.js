@@ -1,4 +1,5 @@
 import Select from "./Select";
+import Input from "./Input";
 import { useState } from "react";
 import "./style.css";
 import { currencies } from "../currencies.js";
@@ -37,11 +38,10 @@ const Form = () => {
           <label htmlFor="amount" className="form__label">
             Wprowadź ilość
           </label>
-          <input
+          <Input
             type="number"
-            min="0"
             id="amount"
-            className="form__input"
+            disabled={false}
             value={amount}
             onChange={({ target }) => setAmount(target.value)}
             onKeyPress={onKeyPress}
@@ -92,7 +92,7 @@ const Form = () => {
           <label htmlFor="result" className="form__label">
             Kurs wymiany
           </label>
-          <input type="text" id="result" disabled className="form__input" value={result} />
+          <Input type="text" id="result" disabled={true} value={result} />
         </div>
         <p className="form__paragraph form__paragraph--small">Kurs walut został zaktualizowany w dniu 28.09.2022</p>
       </fieldset>
