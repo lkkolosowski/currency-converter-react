@@ -1,9 +1,9 @@
 import "./style.css";
 
-const Button = ({ onClick }) => {
+const Button = ({ onClick, content }) => {
   return (
     <button className="button" onClick={onClick}>
-      <i className="fas fa-exchange-alt"></i>
+      {content}
     </button>
   );
 };

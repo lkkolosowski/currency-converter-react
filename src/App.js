@@ -49,7 +49,7 @@ function App() {
           currencyName={sourceCurrency.name}
         />
       }
-      button={<Button onClick={swapCurrencies} />}
+      button={<Button onClick={swapCurrencies} content={<i className="fas fa-exchange-alt"></i>} />}
       targetCurrencySelectBox={
         <SelectBox
           src={`https://flagicons.lipis.dev/flags/4x3/${targetCurrency.flag}.svg`}
