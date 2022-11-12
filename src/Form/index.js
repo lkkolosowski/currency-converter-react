@@ -1,8 +1,6 @@
-
 import "./style.css";
 
 const Form = ({ onSubmit, amountInput, sourceCurrencySelectBox, button, targetCurrencySelectBox, resultInput }) => {
-
   return (
     <form className="form" onSubmit={onSubmit}>
       <fieldset className="form__fieldset">
@@ -21,14 +19,12 @@ const Form = ({ onSubmit, amountInput, sourceCurrencySelectBox, button, targetCu
               </label>
               {sourceCurrencySelectBox}
             </div>
-            <div className="form__row">
-              {button}
-            </div>
+            <div className="form__row">{button}</div>
             <div className="form__row">
               <label htmlFor="target-currency" className="form__label">
                 Przelicz na
               </label>
-             {targetCurrencySelectBox}
+              {targetCurrencySelectBox}
             </div>
           </div>
           <label htmlFor="result" className="form__label">
