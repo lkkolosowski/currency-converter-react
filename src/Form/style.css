@@ -5,7 +5,7 @@
 .form__fieldset {
   margin: 0;
   border: 0;
-  padding: 10px 50px;
+  padding: 0 50px 10px;
   border-radius: 10px;
   background-color: #fff;
   box-shadow: 0 0 8px 0 rgb(34 34 34 / 20%), 0 0 20px 0 rgb(34 34 34 / 20%);
@@ -18,7 +18,7 @@
 }
 @media screen and (max-width: 369px) {
   .form__fieldset {
-    padding: 10px 20px;
+    padding: 0 20px 10px;
   }
 }
 .form__legend {
@@ -34,7 +34,6 @@
 }
 .form__wrapper {
   padding: 40px 0;
-  margin-top: -10px;
   margin-bottom: 28px;
 }
 .form__label {
@@ -44,7 +43,8 @@
   margin-bottom: 6px;
 }
 .form__paragraph {
-  margin-bottom: 5px;
+  margin-top: 6px;
+  margin-bottom: 6px;
 }
 .form__paragraph--small {
   font-size: 12px;
