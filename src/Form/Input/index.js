@@ -1,3 +1,5 @@
+import "./style.css";
+
 const Input = ({ type, id, min, disabled, value, onChange, onKeyPress }) => {
   return (
       <input
@@ -5,7 +7,7 @@ const Input = ({ type, id, min, disabled, value, onChange, onKeyPress }) => {
         id={id}
         min={min}
         disabled={disabled}
-        className="form__input"
+        className="input"
         value={value}
         onChange={onChange}
         onKeyPress={onKeyPress}
