@@ -1,7 +1,9 @@
+import "./style.css";
+
 const Button = ({ onClick }) => {
   return (
-    <button className="form__exchange" onClick={onClick}>
-      <i className="form__exchange-icon fas fa-exchange-alt"></i>
+    <button className="button" onClick={onClick}>
+      <i className="fas fa-exchange-alt"></i>
     </button>
   );
 };
