@@ -65,13 +65,6 @@
   padding: 0 14px;
   border: 2px solid #222;
 }
-.form__flag {
-  grid-area: flag;
-  max-width: 25px;
-  border: 1px solid #888;
-  border-radius: 5px;
-  display: block;
-}
 .form__column {
   display: flex;
   margin-top: 20px;
