@@ -26,6 +26,7 @@ function App() {
   };
 
   const result = ((amount * targetCurrency.rate) / sourceCurrency.rate).toFixed(2);
+
   return (
     <Form
       onSubmit={onSubmit}
