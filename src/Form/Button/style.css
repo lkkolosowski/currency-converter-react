@@ -1,8 +1,9 @@
 .button {
   cursor: pointer;
   font-size: 18px;
-  margin-top: 16px;
-  margin-bottom: 5px;
+  line-height: 18px;
+  margin-top: 6px;
+  margin-bottom: 6px;
   background: transparent;
   border: 0;
 }
