@@ -1,0 +1,7 @@
+.caption {
+  grid-area: caption;
+  justify-self: start;
+  line-height: 12px;
+  font-size: 12px;
+  margin-top: 5px;
+}
