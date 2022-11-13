@@ -1,12 +1,20 @@
 import "./style.css";
 
-const Form = ({ onSubmit, amountInput, sourceCurrencySelectBox, button, targetCurrencySelectBox, resultInput, footer }) => {
+const Form = ({
+  onSubmit,
+  amountInput,
+  sourceCurrencySelectBox,
+  button,
+  targetCurrencySelectBox,
+  resultInput,
+  clock,
+  footer,
+}) => {
   return (
     <form className="form" onSubmit={onSubmit}>
       <fieldset className="form__fieldset">
-        <legend align="center" className="form__legend">
-          Konwerter walutowy
-        </legend>
+        <p className="form__paragraph form__paragraph--right">{clock}</p>
+        <h1 className="form__title">Konwerter walutowy</h1>
         <div className="form__wrapper">
           <label htmlFor="amount" className="form__label">
             Wprowadź ilość
@@ -32,7 +40,7 @@ const Form = ({ onSubmit, amountInput, sourceCurrencySelectBox, button, targetCu
           </label>
           {resultInput}
         </div>
-        {footer}
+        <p className="form__paragraph">{footer}</p>
       </fieldset>
     </form>
   );

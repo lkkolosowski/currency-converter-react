@@ -33,6 +33,7 @@ function App() {
   return (
     <Container>
       <Form
+        clock={<Clock />}
         onSubmit={onSubmit}
         amountInput={
           <Input
@@ -72,7 +73,7 @@ function App() {
             value={`${amount} ${sourceCurrency.code} = ${result} ${targetCurrency.code}`}
           />
         }
-        footer={<Footer clock={<Clock />} />}
+        footer={<Footer />}
       />
     </Container>
   );
