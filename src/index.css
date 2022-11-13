@@ -8,22 +8,7 @@ html {
   box-sizing: inherit;
 }
 
-#root {
-  display: flex;
-  align-items: center;
-  min-height: 100vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("background.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  justify-content: center;
+body {
   color: #222;
   font-family: "Montserrat", sans-serif;
-  background-color: #f0f2f4;
-}
-
-@media screen and (max-width: 399px) {
-  #root {
-    background: #fff;
-  }
 }
