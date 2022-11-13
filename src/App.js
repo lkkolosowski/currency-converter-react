@@ -72,7 +72,7 @@ function App() {
             value={`${amount} ${sourceCurrency.code} = ${result} ${targetCurrency.code}`}
           />
         }
-        footer={<Footer date={<Clock />} />}
+        footer={<Footer clock={<Clock />} />}
       />
     </Container>
   );

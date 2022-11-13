@@ -1,10 +1,10 @@
 import "./style.css";
 
-const Footer = ({ date }) => {
+const Footer = ({ clock }) => {
   return (
     <div className="footer">
       <p className="footer__paragraph">Kurs zaktualizowano w dniu 28.09.2022</p>
-      <p className="footer__paragraph">{date}</p>
+      <p className="footer__paragraph">{clock}</p>
     </div>
   );
 };
