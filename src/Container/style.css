@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 399px) {
+  .container {
+    background: #fff;
+  }
+}

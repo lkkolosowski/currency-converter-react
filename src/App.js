@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Container from "./Container";
 import Form from "./Form";
 import SelectBox from "./Form/SelectBox";
 import Input from "./Form/Input";
@@ -28,48 +29,50 @@ function App() {
   const result = ((amount * targetCurrency.rate) / sourceCurrency.rate).toFixed(2);
 
   return (
-    <Form
-      onSubmit={onSubmit}
-      amountInput={
-        <Input
-          type="number"
-          id="amount"
-          min="0"
-          disabled={false}
-          value={amount}
-          onChange={({ target }) => setAmount(target.value)}
-          onKeyPress={onKeyPress}
-        />
-      }
-      sourceCurrencySelectBox={
-        <SelectBox
-          src={`https://flagicons.lipis.dev/flags/4x3/${sourceCurrency.flag}.svg`}
-          id="source-currency"
-          value={sourceCurrency.code}
-          onChange={({ target }) => setSourceCurrency(currencies.find(({ code }) => code === target.value))}
-          currencyName={sourceCurrency.name}
-        />
-      }
-      targetCurrencySelectBox={
-        <SelectBox
-          src={`https://flagicons.lipis.dev/flags/4x3/${targetCurrency.flag}.svg`}
-          id="target-currency"
-          value={targetCurrency.code}
-          onChange={({ target }) => setTargetCurrency(currencies.find(({ code }) => code === target.value))}
-          currencyName={targetCurrency.name}
-        />
-      }
-      button={<Button onClick={swapCurrencies} content={<i className="fas fa-exchange-alt"></i>} />}
-      resultInput={
-        <Input
-          type="text"
-          id="result"
-          disabled={true}
-          value={`${amount} ${sourceCurrency.code} = ${result} ${targetCurrency.code}`}
-        />
-      }
-    />
+    <Container>
+      <Form
+        onSubmit={onSubmit}
+        amountInput={
+          <Input
+            type="number"
+            id="amount"
+            min="0"
+            disabled={false}
+            value={amount}
+            onChange={({ target }) => setAmount(target.value)}
+            onKeyPress={onKeyPress}
+          />
+        }
+        sourceCurrencySelectBox={
+          <SelectBox
+            src={`https://flagicons.lipis.dev/flags/4x3/${sourceCurrency.flag}.svg`}
+            id="source-currency"
+            value={sourceCurrency.code}
+            onChange={({ target }) => setSourceCurrency(currencies.find(({ code }) => code === target.value))}
+            currencyName={sourceCurrency.name}
+          />
+        }
+        targetCurrencySelectBox={
+          <SelectBox
+            src={`https://flagicons.lipis.dev/flags/4x3/${targetCurrency.flag}.svg`}
+            id="target-currency"
+            value={targetCurrency.code}
+            onChange={({ target }) => setTargetCurrency(currencies.find(({ code }) => code === target.value))}
+            currencyName={targetCurrency.name}
+          />
+        }
+        button={<Button onClick={swapCurrencies} content={<i className="fas fa-exchange-alt"></i>} />}
+        resultInput={
+          <Input
+            type="text"
+            id="result"
+            disabled={true}
+            value={`${amount} ${sourceCurrency.code} = ${result} ${targetCurrency.code}`}
+          />
+        }
+      />
+    </Container>
   );
-};
+}
 
 export default App;
