@@ -13,21 +13,23 @@ const Clock = () => {
     };
   }, []);
 
+  const dateFormat = undefined;
+
   return (
     <span className="clock">
       <span>
         Dzisiaj&nbsp;jest&nbsp;
-        {newDate.toLocaleDateString(undefined, { weekday: "long" })}
+        {newDate.toLocaleDateString(dateFormat, { weekday: "long" })}
         {", "}
       </span>
       <span>
         {newDate
-          .toLocaleDateString(undefined, { day: "numeric", month: "long" })
+          .toLocaleDateString(dateFormat, { day: "numeric", month: "long" })
           .split(" ")
           .map((element) => (
             <span key={element}>{element}&nbsp;</span>
           ))}
-        {newDate.toLocaleDateString(undefined, { year: "numeric" })}
+        {newDate.toLocaleDateString(dateFormat, { year: "numeric" })}
         {", "}
       </span>
       <span>{newDate.toLocaleTimeString()}</span>
