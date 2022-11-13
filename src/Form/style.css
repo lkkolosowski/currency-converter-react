@@ -20,11 +20,11 @@
 @media screen and (max-width: 399px) {
   .form__fieldset {
     border-radius: 0;
-    box-shadow: none;
   }
 }
 @media screen and (max-width: 369px) {
   .form__fieldset {
+    box-shadow: none;
     padding: 30px 20px;
   }
 }
