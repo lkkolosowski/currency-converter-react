@@ -42,13 +42,6 @@
   margin-top: 6px;
   margin-bottom: 6px;
 }
-.form__paragraph {
-  margin-top: 6px;
-  margin-bottom: 6px;
-}
-.form__paragraph--small {
-  font-size: 12px;
-}
 .form__column {
   display: flex;
   margin-top: 28px;
