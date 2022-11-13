@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const Clock = () => {
+const Clock = ({ dateFormat }) => {
   const [newDate, setNewDate] = useState(new Date());
 
   useEffect(() => {
@@ -12,8 +12,6 @@ const Clock = () => {
       clearInterval(intervalId);
     };
   }, []);
-
-  const dateFormat = undefined;
 
   return (
     <span className="clock">

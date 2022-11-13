@@ -30,10 +30,12 @@ function App() {
 
   const result = ((amount * targetCurrency.rate) / sourceCurrency.rate).toFixed(2);
 
+  const dateFormat = undefined;
+
   return (
     <Container>
       <Form
-        clock={<Clock />}
+        clock={<Clock dateFormat={dateFormat} />}
         onSubmit={onSubmit}
         amountInput={
           <Input
@@ -73,7 +75,7 @@ function App() {
             value={`${amount} ${sourceCurrency.code} = ${result} ${targetCurrency.code}`}
           />
         }
-        footer={<Footer />}
+        footer={<Footer dateFormat={dateFormat} />}
       />
     </Container>
   );
