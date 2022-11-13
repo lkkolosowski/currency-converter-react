@@ -1,6 +1,6 @@
 import "./style.css";
 
-const Form = ({ onSubmit, amountInput, sourceCurrencySelectBox, button, targetCurrencySelectBox, resultInput }) => {
+const Form = ({ onSubmit, amountInput, sourceCurrencySelectBox, button, targetCurrencySelectBox, resultInput, footer }) => {
   return (
     <form className="form" onSubmit={onSubmit}>
       <fieldset className="form__fieldset">
@@ -32,7 +32,7 @@ const Form = ({ onSubmit, amountInput, sourceCurrencySelectBox, button, targetCu
           </label>
           {resultInput}
         </div>
-        <p className="form__paragraph form__paragraph--small">Kurs walut został zaktualizowany w dniu 28.09.2022</p>
+        {footer}
       </fieldset>
     </form>
   );

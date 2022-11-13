@@ -1,9 +1,11 @@
 import { useState } from "react";
 import Container from "./Container";
+import Clock from "./Clock";
 import Form from "./Form";
 import SelectBox from "./Form/SelectBox";
 import Input from "./Form/Input";
 import Button from "./Form/Button";
+import Footer from "./Form/Footer";
 import { currencies } from "./currencies.js";
 
 function App() {
@@ -70,6 +72,7 @@ function App() {
             value={`${amount} ${sourceCurrency.code} = ${result} ${targetCurrency.code}`}
           />
         }
+        footer={<Footer date={<Clock />} />}
       />
     </Container>
   );
