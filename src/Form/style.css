@@ -4,12 +4,17 @@
   width: 400px;
   padding: 20px 0;
 }
+@media screen and (max-width: 399px) {
+  .form {
+    padding: 0;
+  }
+}
 .form__fieldset {
   margin: 0;
   border: 0;
   padding: 10px 50px;
   border-radius: 10px;
-  background-color: #fff;
+  background-color: rgb(255 255 255 / 92%);
   box-shadow: 0 0 8px 0 rgb(34 34 34 / 20%), 0 0 20px 0 rgb(34 34 34 / 20%);
 }
 @media screen and (max-width: 399px) {
@@ -20,7 +25,7 @@
 }
 @media screen and (max-width: 369px) {
   .form__fieldset {
-    padding: 0 20px 10px;
+    padding: 30px 20px;
   }
 }
 .form__title {
