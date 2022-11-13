@@ -1,10 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Fragment+Mono&display=swap");
 
 .form {
-  width: 400px;
+  width: 576px;
   padding: 20px 0;
 }
-@media screen and (max-width: 399px) {
+@media screen and (max-width: 575px) {
   .form {
     padding: 0;
   }
@@ -17,14 +17,9 @@
   background-color: rgb(255 255 255 / 92%);
   box-shadow: 0 0 8px 0 rgb(34 34 34 / 20%), 0 0 20px 0 rgb(34 34 34 / 20%);
 }
-@media screen and (max-width: 399px) {
+@media screen and (max-width: 575px) {
   .form__fieldset {
     border-radius: 0;
-  }
-}
-@media screen and (max-width: 369px) {
-  .form__fieldset {
-    box-shadow: none;
     padding: 30px 20px;
   }
 }
@@ -51,10 +46,9 @@
   margin-top: 28px;
   margin-bottom: 28px;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  justify-content: center;
 }
-@media screen and (max-width: 369px) {
+@media screen and (max-width: 339px) {
   .form__column {
     flex-direction: column;
   }
