@@ -1,14 +1,14 @@
-import "./style.css";
+import { Paragraph, Span} from "./styled";
 
 const Footer = ({ dateFormat }) => {
   return (
-    <p className="footer">
-      <span>Kurs walut zaktualizowano </span>
-      <span>w dniu </span>
-      <span>
+    <Paragraph>
+      <Span>Kurs walut zaktualizowano </Span>
+      <Span>w dniu </Span>
+      <Span>
         {new Date(2022, 9, 28).toLocaleDateString(dateFormat, { day: "numeric", month: "long", year: "numeric" })}
-      </span>
-    </p>
+      </Span>
+    </Paragraph>
   );
 };
 
