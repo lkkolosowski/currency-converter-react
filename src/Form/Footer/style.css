@@ -1,0 +1,7 @@
+.footer {
+  display: inline-flex;
+  justify-content: flex-start;
+  column-gap: 7px;
+  flex-wrap: wrap;
+  margin: 0;
+}
