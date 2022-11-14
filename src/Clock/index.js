@@ -1,3 +1,5 @@
+import "./style.css";
+
 import { useState, useEffect } from "react";
 
 const Clock = ({ dateFormat }) => {
@@ -16,19 +18,12 @@ const Clock = ({ dateFormat }) => {
   return (
     <span className="clock">
       <span>
-        Dzisiaj&nbsp;jest&nbsp;
-        {newDate.toLocaleDateString(dateFormat, { weekday: "long" })}
-        {", "}
+        Dzisiaj jest {newDate.toLocaleDateString(dateFormat, { weekday: "long" })}
+        {","}
       </span>
       <span>
-        {newDate
-          .toLocaleDateString(dateFormat, { day: "numeric", month: "long" })
-          .split(" ")
-          .map((element) => (
-            <span key={element}>{element}&nbsp;</span>
-          ))}
-        {newDate.toLocaleDateString(dateFormat, { year: "numeric" })}
-        {", "}
+        {newDate.toLocaleDateString(dateFormat, { day: "numeric", month: "long", year: "numeric" })}
+        {","}
       </span>
       <span>{newDate.toLocaleTimeString()}</span>
     </span>

@@ -1,16 +1,10 @@
 const Footer = ({ dateFormat }) => {
   return (
     <span className="footer">
-      <span>Kurs&nbsp;walut&nbsp;zaktualizowano </span>
-      <span>w&nbsp;dniu </span>
+      <span>Kurs walut zaktualizowano </span>
+      <span>w dniu </span>
       <span>
-        {new Date(2022, 9, 28)
-          .toLocaleDateString(dateFormat, { day: "numeric", month: "long" })
-          .split(" ")
-          .map((element) => (
-            <span key={element}>{element}&nbsp;</span>
-          ))}
-        {new Date(2022, 9, 28).toLocaleDateString(dateFormat, { year: "numeric" })}
+        {new Date(2022, 9, 28).toLocaleDateString(dateFormat, { day: "numeric", month: "long", year: "numeric" })}
       </span>
     </span>
   );
