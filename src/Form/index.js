@@ -1,4 +1,5 @@
 import "./style.css";
+import { FormField, Fieldset, Section, PrimarySection, Title, Wrapper, Label, Column, Row } from "./styled";
 
 const Form = ({
   onSubmit,
@@ -11,38 +12,34 @@ const Form = ({
   footer,
 }) => {
   return (
-    <form className="form" onSubmit={onSubmit}>
-      <fieldset className="form__fieldset">
-        <p className="form__paragraph form__paragraph--right">{clock}</p>
-        <h1 className="form__title">Konwerter walutowy</h1>
-        <div className="form__wrapper">
-          <label htmlFor="amount" className="form__label">
-            Wprowadź ilość
-          </label>
-          {amountInput}
-          <div className="form__column">
-            <div className="form__row">
-              <label htmlFor="source-currency" className="form__label">
-                Przelicz z
-              </label>
-              {sourceCurrencySelectBox}
-            </div>
-            <div className="form__row">{button}</div>
-            <div className="form__row">
-              <label htmlFor="target-currency" className="form__label">
-                Przelicz na
-              </label>
-              {targetCurrencySelectBox}
-            </div>
-          </div>
-          <label htmlFor="result" className="form__label">
-            Kurs wymiany
-          </label>
-          {resultInput}
-        </div>
-        <p className="form__paragraph">{footer}</p>
-      </fieldset>
-    </form>
+    <FormField onSubmit={onSubmit}>
+      <Fieldset>
+        <Section as="header" align="right">
+          {clock}
+        </Section>
+        <PrimarySection>
+          <Title>Konwerter walutowy</Title>
+          <Wrapper className="form__wrapper">
+            <Label htmlFor="amount">Wprowadź ilość</Label>
+            {amountInput}
+            <Column>
+              <Row>
+                <Label htmlFor="source-currency">Przelicz z</Label>
+                {sourceCurrencySelectBox}
+              </Row>
+              <Row>{button}</Row>
+              <Row>
+                <Label htmlFor="target-currency">Przelicz na</Label>
+                {targetCurrencySelectBox}
+              </Row>
+            </Column>
+            <Label htmlFor="result">Kurs wymiany</Label>
+            {resultInput}
+          </Wrapper>
+        </PrimarySection>
+        <Section as="footer">{footer}</Section>
+      </Fieldset>
+    </FormField>
   );
 };
 
