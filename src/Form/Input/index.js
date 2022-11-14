@@ -3,7 +3,7 @@ import "./style.css";
 const Input = ({ autoFocus, type, id, min, disabled, value, onChange, onKeyPress }) => {
   return (
     <input
-    autoFocus={autoFocus}
+      autoFocus={autoFocus}
       type={type}
       id={id}
       min={min}
