@@ -1,5 +1,4 @@
-import "./style.css";
-
+import { Paragraph, Span } from "./styled";
 import { useState, useEffect } from "react";
 
 const Clock = ({ dateFormat }) => {
@@ -16,17 +15,17 @@ const Clock = ({ dateFormat }) => {
   }, []);
 
   return (
-    <p className="clock">
-      <span>
+    <Paragraph className="clock">
+      <Span>
         Dzisiaj jest {newDate.toLocaleDateString(dateFormat, { weekday: "long" })}
         {","}
-      </span>
-      <span>
+      </Span>
+      <Span>
         {newDate.toLocaleDateString(dateFormat, { day: "numeric", month: "long", year: "numeric" })}
         {","}
-      </span>
-      <span>{newDate.toLocaleTimeString()}</span>
-    </p>
+      </Span>
+      <Span>{newDate.toLocaleTimeString()}</Span>
+    </Paragraph>
   );
 };
 
