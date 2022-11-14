@@ -30,7 +30,7 @@ export const Section = styled.section`
   margin-top: 6px;
   margin-bottom: 6px;
   line-height: 1.5;
-  text-align: ${({align}) => align || "left"};
+  text-align: ${({ align }) => align || "left"};
 `;
 
 export const PrimarySection = styled.section`
@@ -63,6 +63,10 @@ export const Column = styled.div`
   margin-bottom: 28px;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 339px) {
+    flex-direction: column;
+  }
 `;
 
 export const Row = styled.div([]);
