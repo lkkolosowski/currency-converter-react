@@ -33,20 +33,21 @@ export const Section = styled.section`
   text-align: ${({align}) => align || "left"};
 `;
 
-export const PrimarySection = styled.section([]);
+export const PrimarySection = styled.section`
+  margin-top: 28px;
+  margin-bottom: 28px;
+`;
 
 export const Title = styled.h1`
   text-align: center;
   color: #008080;
-  margin-top: 28px;
-  margin-bottom: 0;
-  line-height: 48px;
+  margin: 0;
   font-size: 24px;
+  line-height: 2;
 `;
 
 export const Wrapper = styled.div`
   padding: 28px 0;
-  margin-bottom: 28px;
 `;
 
 export const Label = styled.label`
