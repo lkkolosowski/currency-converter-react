@@ -1,8 +1,8 @@
-import "./style.css";
+import { Image } from"./styled";
 
 const Flag = ({ src }) => {
   return (
-    <img className="flag" src={src} alt="flag" />
+    <Image src={src} alt="flag" />
   );
 };
 
