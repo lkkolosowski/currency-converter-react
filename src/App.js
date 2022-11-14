@@ -39,6 +39,7 @@ function App() {
         onSubmit={onSubmit}
         amountInput={
           <Input
+            autoFocus={true}
             type="number"
             id="amount"
             min="0"
