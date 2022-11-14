@@ -1,10 +1,10 @@
-import "./style.css";
+import { Pushbutton } from "./styled";
 
 const Button = ({ onClick, content }) => {
   return (
-    <button className="button" onClick={onClick}>
+    <Pushbutton onClick={onClick}>
       {content}
-    </button>
+    </Pushbutton>
   );
 };
 
