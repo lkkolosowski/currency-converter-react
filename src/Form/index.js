@@ -1,4 +1,3 @@
-import "./style.css";
 import { FormField, Fieldset, Section, PrimarySection, Title, Wrapper, Label, Column, Row } from "./styled";
 
 const Form = ({
