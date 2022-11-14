@@ -16,7 +16,7 @@ const Clock = ({ dateFormat }) => {
   }, []);
 
   return (
-    <span className="clock">
+    <p className="clock">
       <span>
         Dzisiaj jest {newDate.toLocaleDateString(dateFormat, { weekday: "long" })}
         {","}
@@ -26,7 +26,7 @@ const Clock = ({ dateFormat }) => {
         {","}
       </span>
       <span>{newDate.toLocaleTimeString()}</span>
-    </span>
+    </p>
   );
 };
 

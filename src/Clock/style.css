@@ -1,6 +1,7 @@
 .clock {
   display: inline-flex;
   justify-content: flex-end;
-  gap: 4px;
+  column-gap: 7px;
   flex-wrap: wrap;
+  margin: 0;
 }
