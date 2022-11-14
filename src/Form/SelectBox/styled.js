@@ -1,4 +1,6 @@
-.selectBox {
+import styled from "styled-components";
+
+export const Box = styled.div`
   display: grid;
   justify-items: center;
   grid-template-columns: 50% 50%;
@@ -15,8 +17,9 @@
   justify-content: center;
   background-color: #fff;
   border: 1px solid #888;
-}
-.selectBox:focus-within {
-  padding: 0;
-  border: 2px solid #222;
-}
+
+  &:focus-within {
+    padding: 0;
+    border: 2px solid #222;
+  }
+`;
