@@ -1,15 +1,15 @@
 import { currencies } from "../../../currencies.js";
-import "./style.css";
+import { SelectField, Option } from "./styled";
 
 const Select = ({ id, value, onChange }) => {
   return (
-    <select id={id} className="select" value={value} onChange={onChange}>
+    <SelectField id={id} value={value} onChange={onChange}>
       {currencies.map(({ code }) => (
-        <option key={code} value={code}>
+        <Option key={code} value={code}>
           {code}
-        </option>
+        </Option>
       ))}
-    </select>
+    </SelectField>
   );
 };
 

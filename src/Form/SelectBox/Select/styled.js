@@ -1,4 +1,6 @@
-.select {
+import styled from "styled-components";
+
+export const SelectField = styled.select`
   grid-area: select;
   height: 46px;
   border: none;
@@ -7,4 +9,6 @@
   box-shadow: inset 0 0 0 1px #fff; /* this style prevents from looking bad on the Opera browser */
   margin-left: -22px;
   cursor: pointer;
-}
+`;
+
+export const Option = styled.option([]);
