@@ -1,7 +1,7 @@
-import "./style.css";
+import { Paragraph } from "./styled";
 
 const Caption = ({ currencyName }) => {
-  return <p className="caption">{currencyName}</p>;
+  return <Paragraph>{currencyName}</Paragraph>;
 };
 
 export default Caption;
