@@ -4,9 +4,10 @@ const Form = ({
   onSubmit,
   amountInput,
   sourceCurrencySelectBox,
-  button,
+  swapButton,
   targetCurrencySelectBox,
   resultInput,
+  submitButton,
   clock,
   footer,
 }) => {
@@ -26,12 +27,13 @@ const Form = ({
                 <Label htmlFor="source-currency">Przelicz z</Label>
                 {sourceCurrencySelectBox}
               </Row>
-              <Row>{button}</Row>
+              <Row>{swapButton}</Row>
               <Row>
                 <Label htmlFor="target-currency">Przelicz na</Label>
                 {targetCurrencySelectBox}
               </Row>
             </Column>
+            {submitButton}
             <Label htmlFor="result">Kurs wymiany</Label>
             {resultInput}
           </Wrapper>
