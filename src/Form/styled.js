@@ -14,7 +14,7 @@ export const Fieldset = styled.fieldset`
   border: 0;
   padding: 10px 50px;
   border-radius: 10px;
-  background-color: rgb(255 255 255 / 92%);
+  background-color: rgb(255 255 255 / 90%);
   box-shadow: 0 0 8px 0 rgb(34 34 34 / 20%), 0 0 20px 0 rgb(34 34 34 / 20%);
 
   @media (max-width: 575px) {
