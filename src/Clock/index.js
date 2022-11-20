@@ -1,18 +1,8 @@
+import { useCurrentDate } from "./useCurrentDate";
 import { Paragraph, Span } from "./styled";
-import { useState, useEffect } from "react";
 
 const Clock = ({ dateFormat }) => {
-  const [newDate, setNewDate] = useState(new Date());
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setNewDate(new Date());
-    }, 1000);
-
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, []);
+  const newDate = useCurrentDate();
 
   return (
     <Paragraph className="clock">
