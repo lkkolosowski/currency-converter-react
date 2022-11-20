@@ -4,17 +4,31 @@ import Clock from "./Clock";
 import Form from "./Form";
 import SelectBox from "./Form/SelectBox";
 import Input from "./Form/Input";
-import Button from "./Form/Button";
+import SwapButton from "./Form/SwapButton";
+import SubmitButton from "./Form/SubmitButton";
 import Footer from "./Form/Footer";
 import { currencies } from "./currencies.js";
 
 function App() {
   const [sourceCurrency, setSourceCurrency] = useState(currencies[0]);
   const [targetCurrency, setTargetCurrency] = useState(currencies[1]);
-  const [amount, setAmount] = useState("1");
+  const [amount, setAmount] = useState("");
+  const [result, setResult] = useState("");
+
+  const calculateResult = () => {
+    const rate = +targetCurrency.rate / +sourceCurrency.rate;
+
+    setResult({
+      sourceAmount: +amount,
+      sourceCode: sourceCurrency.code,
+      targetAmount: (+amount * rate).toFixed(2),
+      targetCode: targetCurrency.code,
+    });
+  };
 
   const onSubmit = (event) => {
     event.preventDefault();
+    calculateResult();
   };
 
   const onKeyPress = (event) => {
@@ -27,8 +41,6 @@ function App() {
     setSourceCurrency(targetCurrency);
     setTargetCurrency(sourceCurrency);
   };
-
-  const result = ((amount * targetCurrency.rate) / sourceCurrency.rate).toFixed(2);
 
   const dateFormat = undefined;
 
@@ -67,15 +79,20 @@ function App() {
             currencyName={targetCurrency.name}
           />
         }
-        button={<Button onClick={swapCurrencies} content={<i className="fas fa-exchange-alt"></i>} />}
+        swapButton={<SwapButton onClick={swapCurrencies} content={<i className="fas fa-exchange-alt"></i>} />}
         resultInput={
           <Input
             type="text"
             id="result"
             disabled={true}
-            value={`${amount} ${sourceCurrency.code} = ${result} ${targetCurrency.code}`}
+            value={`${
+              result.sourceAmount !== undefined
+                ? `${result.sourceAmount} ${result.sourceCode} = ${result.targetAmount} ${result.targetCode}`
+                : ``
+            }`}
           />
         }
+        submitButton={<SubmitButton content="Przelicz" />}
         footer={<Footer dateFormat={dateFormat} />}
       />
     </Container>
