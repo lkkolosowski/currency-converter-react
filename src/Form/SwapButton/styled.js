@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
-export const Pushbutton = styled.button`
+export const Button = styled.a`
   cursor: pointer;
+  display: block;
+  text-align: center;
   font-size: 18px;
   line-height: 30px;
   margin-top: 6px;
@@ -14,6 +16,10 @@ export const Pushbutton = styled.button`
   width: 70px;
 
   &:hover{
+    opacity: 0.8;
+  }
+
+  &:active{
     opacity: 0.7;
   }
 `;
