@@ -42,8 +42,11 @@ export const Title = styled.h1`
   text-align: center;
   color: #008080;
   margin: 0;
-  font-size: 24px;
   line-height: 2;
+
+  @media (max-width: 575px) {
+    font-size: 24px;
+  }
 `;
 
 export const Wrapper = styled.div`
