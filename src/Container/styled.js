@@ -10,4 +10,9 @@ export const Main = styled.main`
   background-size: cover;
   background-position: center;
   justify-content: center;
+
+  @media (max-width: 575px) {
+    background-position: top;
+    background-size: auto;
+  }
 `;
