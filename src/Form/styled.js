@@ -18,6 +18,7 @@ export const Fieldset = styled.fieldset`
   box-shadow: 0 0 8px 0 rgb(34 34 34 / 20%), 0 0 20px 0 rgb(34 34 34 / 20%);
 
   @media (max-width: 575px) {
+    min-height: 100vh;
     border-radius: 0;
     padding: 30px 20px;
   }
