@@ -6,14 +6,12 @@ export const Button = styled.a`
   text-align: center;
   font-size: 18px;
   line-height: 30px;
-  margin-top: 6px;
-  margin-bottom: 6px;
   background: transparent;
   border: 0;
-  margin: 0;
+  margin: 0 20px;
   padding: 0;
   height: 30px;
-  width: 70px;
+  width: 30px;
 
   &:hover{
     opacity: 0.8;
