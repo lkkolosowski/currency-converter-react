@@ -20,7 +20,7 @@ export const Fieldset = styled.fieldset`
   @media (max-width: 575px) {
     min-height: 100vh;
     border-radius: 0;
-    padding: 30px 20px;
+    padding: 10px 20px;
   }
 `;
 
