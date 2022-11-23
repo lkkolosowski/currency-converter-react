@@ -1,20 +1,20 @@
 import { useCurrentDate } from "./useCurrentDate";
-import { Paragraph, Span } from "./styled";
+import { Paragraph } from "./styled";
 
 const Clock = ({ dateFormat }) => {
   const newDate = useCurrentDate();
 
   return (
     <Paragraph className="clock">
-      <Span>
+      <span>
         Dzisiaj jest {newDate.toLocaleDateString(dateFormat, { weekday: "long" })}
         {","}
-      </Span>
-      <Span>
+      </span>
+      <span>
         {newDate.toLocaleDateString(dateFormat, { day: "numeric", month: "long", year: "numeric" })}
         {","}
-      </Span>
-      <Span>{newDate.toLocaleTimeString()}</Span>
+      </span>
+      <span>{newDate.toLocaleTimeString()}</span>
     </Paragraph>
   );
 };

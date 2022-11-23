@@ -7,5 +7,3 @@ export const Paragraph = styled.p`
   flex-wrap: wrap;
   margin: 0;
 `;
-
-export const Span = styled.span([]);
