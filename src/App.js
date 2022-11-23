@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Container from "./Container";
 import Clock from "./Clock";
 import Form from "./Form";
@@ -12,8 +12,12 @@ import { currencies } from "./currencies.js";
 function App() {
   const [sourceCurrency, setSourceCurrency] = useState(currencies[0]);
   const [targetCurrency, setTargetCurrency] = useState(currencies[1]);
-  const [amount, setAmount] = useState("");
+  const [amount, setAmount] = useState("14");
   const [result, setResult] = useState("");
+
+  useEffect(() => {
+    Form.onsubmit = onSubmit();
+  }, []);
 
   const calculateResult = () => {
     const rate = +targetCurrency.rate / +sourceCurrency.rate;
