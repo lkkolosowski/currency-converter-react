@@ -12,11 +12,11 @@ import { currencies } from "./currencies.js";
 function App() {
   const [sourceCurrency, setSourceCurrency] = useState(currencies[0]);
   const [targetCurrency, setTargetCurrency] = useState(currencies[1]);
-  const [amount, setAmount] = useState("14");
+  const [amount, setAmount] = useState("1");
   const [result, setResult] = useState("");
 
   useEffect(() => {
-    Form.onsubmit = onSubmit();
+    Form.onsubmit = calculateResult();
   }, []);
 
   const calculateResult = () => {
