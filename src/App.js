@@ -10,8 +10,8 @@ import Footer from "./Form/Footer";
 import { currencies } from "./currencies.js";
 
 function App() {
-  const [sourceCurrency, setSourceCurrency] = useState(currencies[0]);
-  const [targetCurrency, setTargetCurrency] = useState(currencies[1]);
+  const [sourceCurrency, setSourceCurrency] = useState(currencies.find(({ code }) => code === "USD"));
+  const [targetCurrency, setTargetCurrency] = useState(currencies.find(({ code }) => code === "PLN"));
   const [amount, setAmount] = useState("1");
   const [result, setResult] = useState("");
 
