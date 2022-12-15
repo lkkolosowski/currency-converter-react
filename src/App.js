@@ -1,107 +1,41 @@
-import { useState, useEffect } from "react";
 import Container from "./Container";
-import Clock from "./Clock";
-import Form from "./Form";
-import SelectBox from "./Form/SelectBox";
-import Input from "./Form/Input";
-import SwapButton from "./Form/SwapButton";
-import SubmitButton from "./Form/SubmitButton";
-import Footer from "./Form/Footer";
-import { currencies } from "./currencies.js";
+import Pending from "./Pending";
+import Success from "./Success";
+// import Form from "./Form";
+import Error from "./Error";
+import { useAPI } from "./useAPI";
+import { useCurrencies } from "./useCurrencies";
 
 function App() {
-  const [sourceCurrency, setSourceCurrency] = useState(currencies.find(({ code }) => code === "USD"));
-  const [targetCurrency, setTargetCurrency] = useState(currencies.find(({ code }) => code === "PLN"));
-  const [amount, setAmount] = useState("1");
-  const [result, setResult] = useState("");
+  const currenciesData = useAPI();
+  const currencies = useCurrencies();
+  console.log(currenciesData.status);
+  console.log(currencies);
 
-  useEffect(() => {
-    Form.onsubmit = calculateResult();
-  }, []);
-
-  const calculateResult = () => {
-    const rate = +targetCurrency.rate / +sourceCurrency.rate;
-
-    setResult({
-      sourceAmount: +amount,
-      sourceCode: sourceCurrency.code,
-      targetAmount: (+amount * rate).toFixed(2),
-      targetCode: targetCurrency.code,
-    });
-  };
-
-  const onSubmit = (event) => {
-    event.preventDefault();
-    calculateResult();
-  };
-
-  const onKeyPress = (event) => {
-    if (event.code === "Minus") {
-      event.preventDefault();
-    }
-  };
-
-  const swapCurrencies = () => {
-    setSourceCurrency(targetCurrency);
-    setTargetCurrency(sourceCurrency);
-  };
-
-  const dateFormat = undefined;
-
-  return (
+  if (currenciesData.status === "pending") {
+    return (
+      <Container>
+        <Pending />
+      </Container>
+    );
+  } else if (currenciesData.status === "success") {
+    return (
+      <Container>
+        <Success currencies={currencies} />
+        {/* <Form currencies={currencies} /> */}
+      </Container>
+    );
+  } else if (currenciesData.status === "error") {
+    return (
+      <Container>
+        <Error />
+      </Container>
+    );
+  } else {
     <Container>
-      <Form
-        clock={<Clock dateFormat={dateFormat} />}
-        onSubmit={onSubmit}
-        amountInput={
-          <Input
-            autoFocus={true}
-            type="number"
-            id="amount"
-            min="0"
-            step="0.01"
-            disabled={false}
-            value={amount}
-            onChange={({ target }) => setAmount(target.value)}
-            onKeyPress={onKeyPress}
-          />
-        }
-        sourceCurrencySelectBox={
-          <SelectBox
-            src={`https://flagicons.lipis.dev/flags/4x3/${sourceCurrency.flag}.svg`}
-            id="source-currency"
-            value={sourceCurrency.code}
-            onChange={({ target }) => setSourceCurrency(currencies.find(({ code }) => code === target.value))}
-            currencyName={sourceCurrency.name}
-          />
-        }
-        targetCurrencySelectBox={
-          <SelectBox
-            src={`https://flagicons.lipis.dev/flags/4x3/${targetCurrency.flag}.svg`}
-            id="target-currency"
-            value={targetCurrency.code}
-            onChange={({ target }) => setTargetCurrency(currencies.find(({ code }) => code === target.value))}
-            currencyName={targetCurrency.name}
-          />
-        }
-        swapButton={<SwapButton onClick={swapCurrencies} content={<i className="fas fa-exchange-alt"></i>} />}
-        resultInput={
-          <Input
-            type="text"
-            id="result"
-            disabled={true}
-            value={`${
-              result.sourceAmount !== undefined
-                ? `${result.sourceAmount} ${result.sourceCode} = ${result.targetAmount} ${result.targetCode}`
-                : ``
-            }`}
-          />
-        }
-        submitButton={<SubmitButton content="Przelicz" />}
-        footer={<Footer dateFormat={dateFormat} />}
-      />
-    </Container>
-  );
+      <>Inny błąd</>
+    </Container>;
+  }
 }
 
 export default App;
