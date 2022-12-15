@@ -10,5 +10,3 @@ export const SelectField = styled.select`
   margin-left: -22px;
   cursor: pointer;
 `;
-
-export const Option = styled.option([]);
