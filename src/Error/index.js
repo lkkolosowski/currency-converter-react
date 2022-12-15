@@ -1,12 +1,11 @@
 import { Paragraph, Span } from "./styled";
 
-const Error = () => {
+const Error = ({ status }) => {
   return (
     <Paragraph>
       <Span>
-        O nie! nie udało się.
-        <br />
-        (error)
+        O nie! Nie udało się.
+        <br /><br />({`${status}`})
       </Span>
     </Paragraph>
   );

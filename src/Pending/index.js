@@ -1,12 +1,12 @@
 import { Paragraph, Span } from "./styled";
 
-const Pending = () => {
+const Pending = ({ status }) => {
   return (
     <Paragraph>
       <Span>
         Czekaj ...
         <br />
-        (pending)
+        <br />({`${status}`})
       </Span>
     </Paragraph>
   );
