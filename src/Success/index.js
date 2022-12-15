@@ -9,7 +9,7 @@ const Success = ({ currencies }) => {
         <br />
         (success)
         <br />
-        {`${currencies[9].code}`}{` `}{`${currencies[9].name}`}
+        {`${currencies[9].code}`}{` — `}{`${currencies[9].name}`}
       </Span>
     </Paragraph>
   );
