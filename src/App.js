@@ -15,20 +15,20 @@ function App() {
   if (currenciesData.status === "pending") {
     return (
       <Container>
-        <Pending />
+        <Pending status={currenciesData.status} />
       </Container>
     );
   } else if (currenciesData.status === "success") {
     return (
       <Container>
-        <Success currencies={currencies} />
+        <Success currencies={currencies} status={currenciesData.status} />
         {/* <Form currencies={currencies} /> */}
       </Container>
     );
   } else if (currenciesData.status === "error") {
     return (
       <Container>
-        <Error />
+        <Error status={currenciesData.status} />
       </Container>
     );
   } else {
