@@ -72,3 +72,5 @@ export const currencies = [
     flag: "cn",
   },
 ];
+
+// no longer in use, this file will be removed soon.
