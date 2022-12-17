@@ -10,19 +10,19 @@ function App() {
   const currenciesData = useAPI();
   const currencies = useCurrencies();
   console.log(currenciesData.status);
-  console.log(currencies);
+  console.log(currenciesData);
 
-  if (currenciesData.status === "pending") {
+  if (currenciesData.status === "pending" && currencies.length === 0) {
     return (
       <Container>
         <Pending status={currenciesData.status} />
       </Container>
     );
-  } else if (currenciesData.status === "success") {
+  } else if (currenciesData.status === "success" && currencies.length > 0) {
     return (
       <Container>
-        {/* <Success currencies={currencies} status={currenciesData.status} /> */}
-        <Form currencies={currencies} />
+        {/* <Success currencies={currencies} status={currenciesData.status} />/ */}
+        <Form currenciesDay={currenciesData.date} currencies={currencies} />
       </Container>
     );
   } else if (currenciesData.status === "error") {
