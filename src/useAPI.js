@@ -3,9 +3,8 @@ import axios from "axios";
 
 export const useAPI = () => {
   const [currenciesData, setCurrenciesData] = useState({
-    date: null,
-    ratesData: false,
-    currencies: false,
+    date: undefined,
+    ratesData: undefined,
     status: "pending",
   });
 
@@ -24,7 +23,7 @@ export const useAPI = () => {
         });
       }
     };
-    setTimeout(fetchData, 1000);
+    setTimeout(fetchData, 2000);
   }, []);
 
   return currenciesData;
