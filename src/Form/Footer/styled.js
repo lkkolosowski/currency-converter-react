@@ -8,4 +8,6 @@ export const Paragraph = styled.p`
   margin: 0;
 `;
 
-export const Span = styled.span([]);
+export const Day = styled.span`
+  color: #c80000;
+`;

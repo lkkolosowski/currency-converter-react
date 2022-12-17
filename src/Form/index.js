@@ -7,7 +7,7 @@ import SubmitButton from "./SubmitButton";
 import Footer from "./Footer";
 import { FormField, Fieldset, Section, PrimarySection, Title, Wrapper, Label, Column, Row } from "./styled";
 
-const Form = ({ currencies }) => {
+const Form = ({ currenciesDay, currencies }) => {
   const [sourceCurrency, setSourceCurrency] = useState(currencies.find(({ code }) => code === "USD"));
   const [targetCurrency, setTargetCurrency] = useState(currencies.find(({ code }) => code === "PLN"));
   const [amount, setAmount] = useState("1");
@@ -105,7 +105,7 @@ const Form = ({ currencies }) => {
           </Wrapper>
         </PrimarySection>
         <Section as="footer">
-          <Footer dateFormat={dateFormat} />
+          <Footer currenciesDay={currenciesDay} dateFormat={dateFormat} />
         </Section>
       </Fieldset>
     </FormField>
