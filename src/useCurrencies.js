@@ -5,7 +5,7 @@ import { names } from "./names";
 export const useCurrencies = () => {
   const currenciesData = useAPI();
   const ratesData = currenciesData.ratesData;
-  const [currencies, setCurrencies] = useState("currencies not set");
+  const [currencies, setCurrencies] = useState([]);
 
   useEffect(() => {
     const waitForData = (time) =>
