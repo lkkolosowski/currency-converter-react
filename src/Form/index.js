@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Clock from "../Clock";
 import Input from "./Input";
 import SelectBox from "./SelectBox";
@@ -12,6 +12,10 @@ const Form = ({ currenciesDay, currencies }) => {
   const [targetCurrency, setTargetCurrency] = useState(currencies.find(({ code }) => code === "PLN"));
   const [amount, setAmount] = useState("1");
   const [result, setResult] = useState("");
+
+  useEffect(() => {
+    calculateResult();
+  }, []);
 
   const calculateResult = () => {
     const rate = +targetCurrency.rate / +sourceCurrency.rate;
