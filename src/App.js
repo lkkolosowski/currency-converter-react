@@ -9,8 +9,6 @@ import { useCurrencies } from "./useCurrencies";
 function App() {
   const currenciesData = useAPI();
   const currencies = useCurrencies();
-  console.log(currenciesData.status);
-  console.log(currenciesData);
 
   if (currenciesData.status === "pending" && currencies.length === 0) {
     return (
