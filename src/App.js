@@ -1,6 +1,5 @@
 import Container from "./Container";
 import Pending from "./Pending";
-// import Success from "./Success";
 import Form from "./Form";
 import Error from "./Error";
 import { useAPI } from "./useAPI";
@@ -19,7 +18,6 @@ function App() {
   } else if (currenciesData.status === "success" && currencies.length > 0) {
     return (
       <Container>
-        {/* <Success currencies={currencies} status={currenciesData.status} />/ */}
         <Form currenciesDay={currenciesData.date} currencies={currencies} />
       </Container>
     );
