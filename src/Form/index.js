@@ -85,6 +85,7 @@ const Form = ({ currencies }) => {
                   value={targetCurrency.code}
                   onChange={({ target }) => setTargetCurrency(currencies.find(({ code }) => code === target.value))}
                   currencyName={targetCurrency.name}
+                  currencies={currencies}
                 />
               </Row>
             </Column>
