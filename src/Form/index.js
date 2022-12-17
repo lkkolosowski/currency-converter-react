@@ -8,8 +8,8 @@ import Footer from "./Footer";
 import { FormField, Fieldset, Section, PrimarySection, Title, Wrapper, Label, Column, Row } from "./styled";
 
 const Form = ({ currencies }) => {
-  const [sourceCurrency, setSourceCurrency] = useState("USD");
-  const [targetCurrency, setTargetCurrency] = useState("PLN");
+  const [sourceCurrency, setSourceCurrency] = useState(currencies.find(({ code }) => code === "USD"));
+  const [targetCurrency, setTargetCurrency] = useState(currencies.find(({ code }) => code === "PLN"));
   const [amount, setAmount] = useState("1");
   const [result, setResult] = useState("");
 
@@ -72,6 +72,7 @@ const Form = ({ currencies }) => {
                   value={sourceCurrency.code}
                   onChange={({ target }) => setSourceCurrency(currencies.find(({ code }) => code === target.value))}
                   currencyName={sourceCurrency.name}
+                  currencies={currencies}
                 />
               </Row>
               <Row>

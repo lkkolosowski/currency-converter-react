@@ -1,13 +1,13 @@
-import { Paragraph, Span} from "./styled";
+import { Paragraph, Day} from "./styled";
 
-const Footer = ({ dateFormat }) => {
+const Footer = ({ currenciesDay, dateFormat }) => {
   return (
     <Paragraph>
-      <Span>Kurs walut zaktualizowano </Span>
-      <Span>w dniu </Span>
-      <Span>
-        {new Date(2022, 9, 28).toLocaleDateString(dateFormat, { day: "numeric", month: "long", year: "numeric" })}
-      </Span>
+      <span>Kurs walut zaktualizowano </span>
+      <span>w dniu </span>
+      <Day>
+        {new Date(currenciesDay.replaceAll("-", ", ")).toLocaleDateString(dateFormat, { day: "numeric", month: "long", year: "numeric" })}
+      </Day>
     </Paragraph>
   );
 };
