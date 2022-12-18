@@ -22,10 +22,12 @@ const Form = ({ currenciesData, currencies }) => {
         const initialTargetCurrency = await currencies.find(({ code }) => code === "PLN");
         setSourceCurrency(initialSourceCurrency);
         setTargetCurrency(initialTargetCurrency);
+      }
+      if (sourceCurrency !== 0) {
         calculateResult();
       }
     })();
-  }, [currenciesData]);
+  }, [currenciesData.status, sourceCurrency, currencies]);
 
   const calculateResult = () => {
     const rate = +targetCurrency.rate / +sourceCurrency.rate;
