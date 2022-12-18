@@ -28,7 +28,7 @@ export const useCurrencies = () => {
         setCurrencies(mergeArrays(namesData, ratesData));
       }
     });
-  }, [ratesData, currenciesData.status]);
+  }, [currenciesData]);
 
   return currencies;
 };
