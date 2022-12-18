@@ -9,29 +9,19 @@ function App() {
   const currenciesData = useAPI();
   const currencies = useCurrencies();
 
-  if (currenciesData.status === "pending" && currencies.length === 0) {
-    return (
-      <Container>
-        <Pending status={currenciesData.status} />
-      </Container>
-    );
-  } else if (currenciesData.status === "success" && currencies.length > 0) {
-    return (
-      <Container>
-        <Form currenciesDay={currenciesData.date} currencies={currencies} />
-      </Container>
-    );
-  } else if (currenciesData.status === "error") {
-    return (
-      <Container>
-        <Error status={currenciesData.status} />
-      </Container>
-    );
-  } else {
+  return (
     <Container>
-      <>Inny błąd</>
-    </Container>;
-  }
+      {currenciesData.status === "pending" && currencies.length === 0 ? (
+        <Pending status={currenciesData.status} />
+      ) : currenciesData.status === "success" && currencies.length > 0 ? (
+        <Form currenciesData={currenciesData} currencies={currencies} />
+      ) : currenciesData.status === "error" ? (
+        <Error status={currenciesData.status} />
+      ) : (
+        <Pending status={currenciesData.status} />
+      )}
+    </Container>
+  );
 }
 
 export default App;
