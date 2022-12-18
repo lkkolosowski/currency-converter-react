@@ -15,13 +15,18 @@ const Form = ({ currenciesData, currencies }) => {
   const [amount, setAmount] = useState("1");
   const [result, setResult] = useState("");
 
+  console.log(currenciesData);
+  console.log(result);
+
   useEffect(() => {
-    if (currenciesData.status === "success" && currenciesData.currencies.length > 0) {
+    if (currenciesData.status === "success") {
       setSourceCurrency(currencies.find(({ code }) => code === "USD"));
       setTargetCurrency(currencies.find(({ code }) => code === "PLN"));
+    }
+    if (sourceCurrency === currencies.find(({ code }) => code === "USD")) {
       calculateResult();
     }
-  }, [currenciesData, currencies]);
+  }, [currenciesData.status, sourceCurrency]);
 
   const calculateResult = () => {
     const rate = +targetCurrency.rate / +sourceCurrency.rate;
@@ -121,7 +126,9 @@ const Form = ({ currenciesData, currencies }) => {
               value={`${
                 currenciesData.status === "pending" || result.targetCode === undefined
                   ? "wczytuję dane ..."
-                  : `${result.sourceAmount} ${result.sourceCode} = ${result.targetAmount} ${result.targetCode}`
+                  : currenciesData.status === "success" && result.targetCode !== undefined
+                  ? `${result.sourceAmount} ${result.sourceCode} = ${result.targetAmount} ${result.targetCode}`
+                  : ""
               }`}
             />
           </Wrapper>
