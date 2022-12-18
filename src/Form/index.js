@@ -27,7 +27,7 @@ const Form = ({ currenciesData, currencies }) => {
         calculateResult();
       }
     })();
-  }, [currenciesData.status, sourceCurrency, currencies]);
+  }, [currenciesData.status, currencies]);
 
   const calculateResult = () => {
     const rate = +targetCurrency.rate / +sourceCurrency.rate;
