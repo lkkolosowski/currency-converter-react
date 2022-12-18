@@ -1,17 +1,14 @@
 import { Paragraph, Span } from "./styled";
+import { useAPI } from "../useAPI";
 
-const Success = ({ currencies, status }) => {
+const Success = () => {
+  const currenciesData = useAPI();
+
   return (
     <Paragraph>
       <Span>
         Wszystko poprawnie 👌
-        <br />
-        {currencies.map(({ code, name }) => (
-          <option key={code} value={code}>
-            {code} {name}
-          </option>
-        ))}
-        ({`${status}`})
+        <br />({`${currenciesData.status}`})
       </Span>
     </Paragraph>
   );
