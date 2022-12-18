@@ -63,6 +63,7 @@ export const Label = styled.label`
 
 export const Column = styled.div`
   display: flex;
+  min-height: 106px;
   margin-top: 28px;
   margin-bottom: 28px;
   align-items: center;
