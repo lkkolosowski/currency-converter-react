@@ -12,7 +12,8 @@ export const useAPI = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("rates.json");
+        // const response = await axios.get("rates.json");
+        const response = await axios.get("https://api.exchangerate.host/latest?symbols=PLN,USD,EUR,JPY,CZK,HRK,CHF,GBP,INR,SEK,KRW,CNY&base=PLN");
         setCurrenciesData({
           date: response.data.date,
           ratesData: Object.entries(response.data.rates).map(([code, rate]) => ({ code, rate })),
