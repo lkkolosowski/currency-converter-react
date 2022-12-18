@@ -16,7 +16,7 @@ const Form = ({ currenciesData, currencies }) => {
   const [result, setResult] = useState("");
 
   useEffect(() => {
-    if (currenciesData.status === "success" && currenciesData.currencies !== undefined) {
+    if (currenciesData.status === "success" && currenciesData.currencies.length > 0) {
       setSourceCurrency(currencies.find(({ code }) => code === "USD"));
       setTargetCurrency(currencies.find(({ code }) => code === "PLN"));
       calculateResult();
@@ -119,9 +119,9 @@ const Form = ({ currenciesData, currencies }) => {
               id="result"
               disabled={true}
               value={`${
-                result.sourceAmount !== undefined
-                  ? `${result.sourceAmount} ${result.sourceCode} = ${result.targetAmount} ${result.targetCode}`
-                  : `wczytuję dane ...`
+                currenciesData.status === "pending" || result.targetCode === undefined
+                  ? "wczytuję dane ..."
+                  : `${result.sourceAmount} ${result.sourceCode} = ${result.targetAmount} ${result.targetCode}`
               }`}
             />
           </Wrapper>
