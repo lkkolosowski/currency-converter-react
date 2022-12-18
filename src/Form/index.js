@@ -5,8 +5,8 @@ import SelectBox from "./SelectBox";
 import SwapButton from "./SwapButton";
 import SubmitButton from "./SubmitButton";
 import Footer from "./Footer";
-import Loader from "./Loader";
-import Error from "../Error";
+import Pending from "./Pending";
+import Error from "./Error";
 import { FormField, Fieldset, Section, PrimarySection, Title, Wrapper, Label, Column, Row } from "./styled";
 
 const Form = ({ currenciesData, currencies }) => {
@@ -79,7 +79,7 @@ const Form = ({ currenciesData, currencies }) => {
             />
             <Column>
               {currenciesData.status === "pending" ? (
-                <Loader />
+                <Pending />
               ) : currenciesData.status === "error" ? (
                 <Error status={currenciesData.status} />
               ) : (
@@ -124,7 +124,7 @@ const Form = ({ currenciesData, currencies }) => {
               disabled={true}
               value={`${
                 currenciesData.status === "pending"
-                  ? `wczytuję dane ...`
+                  ? `Trwa ładowanie danych ...`
                   : currenciesData.status === "error"
                   ? ``
                   : `${result.sourceAmount} ${result.sourceCode} = ${result.targetAmount} ${result.targetCode}`
