@@ -15,9 +15,6 @@ const Form = ({ currenciesData, currencies }) => {
   const [amount, setAmount] = useState("1");
   const [result, setResult] = useState("");
 
-  console.log(currenciesData);
-  console.log(result);
-
   useEffect(() => {
     if (currenciesData.status === "success") {
       setSourceCurrency(currencies.find(({ code }) => code === "USD"));
