@@ -4,8 +4,6 @@ import { namesData } from "./namesData";
 
 export const useCurrencies = () => {
   const [currenciesData, setCurrenciesData] = useState({
-    date: undefined,
-    currencies: [],
     status: "pending",
   });
 
