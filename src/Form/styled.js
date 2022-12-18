@@ -70,6 +70,7 @@ export const Column = styled.div`
   justify-content: center;
 
   @media (max-width: 339px) {
+    min-height: 242px;
     flex-direction: column;
   }
 `;
