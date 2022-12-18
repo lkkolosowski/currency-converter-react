@@ -1,13 +1,10 @@
-import { Paragraph, Span } from "./styled";
+import { StyledError } from "./styled";
 
-const Error = ({ status }) => {
+const Error = () => {
   return (
-    <Paragraph>
-      <Span>
-        O nie! Nie udało się.
-        <br /><br />({`${status}`})
-      </Span>
-    </Paragraph>
+    <StyledError>
+        Nie udało się pobrać danych. <br />Sprawdź połączenie z internetem
+    </StyledError>
   );
 };
 
