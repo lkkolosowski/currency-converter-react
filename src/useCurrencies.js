@@ -5,15 +5,15 @@ import { namesData } from "./namesData";
 export const useCurrencies = () => {
   const [currenciesData, setCurrenciesData] = useState({
     date: undefined,
-    currencies: undefined,
+    currencies: [],
     status: "pending",
   });
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("rates.json");
-        // const response = await axios.get("https://api.exchangerate.host/latest?symbols=PLN,USD,EUR,JPY,CZK,HRK,CHF,GBP,INR,SEK,KRW,CNY&base=PLN");
+        // const response = await axios.get("rates.json");
+        const response = await axios.get("https://api.exchangerate.host/latest?symbols=PLN,USD,EUR,JPY,CZK,HRK,CHF,GBP,INR,SEK,KRW,CNY&base=PLN");
         const ratesData = Object.entries(response.data.rates).map(([code, rate]) => ({ code, rate }));
         const mergeArrays = (names, rates) => {
           return names.map((item, i) => {
