@@ -16,14 +16,16 @@ const Form = ({ currenciesData, currencies }) => {
   const [result, setResult] = useState("");
 
   useEffect(() => {
-    if (currenciesData.status === "success") {
-      setSourceCurrency(currencies.find(({ code }) => code === "USD"));
-      setTargetCurrency(currencies.find(({ code }) => code === "PLN"));
-    }
-    if (sourceCurrency === currencies.find(({ code }) => code === "USD")) {
-      calculateResult();
-    }
-  }, [currenciesData.status, sourceCurrency]);
+    (async () => {
+      if (currenciesData.status === "success") {
+        const initialSourceCurrency = await currencies.find(({ code }) => code === "USD");
+        const initialTargetCurrency = await currencies.find(({ code }) => code === "PLN");
+        setSourceCurrency(initialSourceCurrency);
+        setTargetCurrency(initialTargetCurrency);
+        calculateResult();
+      }
+    })();
+  }, [currenciesData]);
 
   const calculateResult = () => {
     const rate = +targetCurrency.rate / +sourceCurrency.rate;
@@ -121,11 +123,11 @@ const Form = ({ currenciesData, currencies }) => {
               id="result"
               disabled={true}
               value={`${
-                currenciesData.status === "pending" || result.targetCode === undefined
-                  ? "wczytuję dane ..."
-                  : currenciesData.status === "success" && result.targetCode !== undefined
-                  ? `${result.sourceAmount} ${result.sourceCode} = ${result.targetAmount} ${result.targetCode}`
-                  : ""
+                currenciesData.status === "pending"
+                  ? `wczytuję dane ...`
+                  : currenciesData.status === "error"
+                  ? ``
+                  : `${result.sourceAmount} ${result.sourceCode} = ${result.targetAmount} ${result.targetCode}`
               }`}
             />
           </Wrapper>
