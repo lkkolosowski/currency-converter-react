@@ -1,4 +1,4 @@
-import { Paragraph, Day} from "./styled";
+import { Paragraph, Day } from "./styled";
 
 const Footer = ({ currenciesData, dateFormat }) => {
   return (
@@ -6,7 +6,13 @@ const Footer = ({ currenciesData, dateFormat }) => {
       <span>Kurs walut zaktualizowano </span>
       <span>w dniu </span>
       <Day>
-        {new Date(currenciesData.date.replaceAll("-", ", ")).toLocaleDateString(dateFormat, { day: "numeric", month: "long", year: "numeric" })}
+        {currenciesData.status === "success"
+          ? new Date(currenciesData.date.replaceAll("-", ", ")).toLocaleDateString(dateFormat, {
+              day: "numeric",
+              month: "long",
+              year: "numeric",
+            })
+          : "..."}
       </Day>
     </Paragraph>
   );
