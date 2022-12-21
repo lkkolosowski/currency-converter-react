@@ -1,6 +1,6 @@
 import { InputField } from "./styled";
 
-const Input = ({ type, id, min,step, disabled, value, onChange, onKeyPress }) => {
+const Input = ({ type, id, min, step, disabled, value, onChange, onKeyPress }) => {
   return (
     <InputField
       type={type}

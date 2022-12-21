@@ -11,7 +11,11 @@ export const useCurrencies = () => {
     const fetchData = async () => {
       try {
         // const response = await axios.get("rates.json");
-        const response = await axios.get(`https://api.exchangerate.host/latest?symbols=PLN,USD,EUR,JPY,CZK,HRK,CHF,GBP,INR,SEK,KRW,CNY&base=PLN&${Math.floor(Math.random() * 9999)}`);
+        const response = await axios.get(
+          `https://api.exchangerate.host/latest?symbols=PLN,USD,EUR,JPY,CZK,HRK,CHF,GBP,INR,SEK,KRW,CNY&base=PLN&${Math.floor(
+            Math.random() * 9999
+          )}`
+        );
         const ratesData = Object.entries(response.data.rates).map(([code, rate]) => ({ code, rate }));
         const mergeArrays = (names, rates) => {
           return names.map((item, i) => {
