@@ -9,40 +9,36 @@ import Pending from "./Pending";
 import Error from "./Error";
 import { FormField, Fieldset, Section, PrimarySection, Title, Wrapper, Label, Column, Row } from "./styled";
 
-const Form = ({ currenciesData, currencies }) => {
+const Form = ({ status, currencies, date }) => {
   const [sourceCurrency, setSourceCurrency] = useState("");
   const [targetCurrency, setTargetCurrency] = useState("");
   const [amount, setAmount] = useState("1");
   const [result, setResult] = useState("");
 
   useEffect(() => {
-    (async () => {
-      if (currenciesData.status === "success") {
-        const initialSourceCurrency = await currencies.find(({ code }) => code === "USD");
-        const initialTargetCurrency = await currencies.find(({ code }) => code === "PLN");
-        setSourceCurrency(initialSourceCurrency);
-        setTargetCurrency(initialTargetCurrency);
-      }
-      if (sourceCurrency !== 0) {
-        calculateResult();
-      }
-    })();
-  }, [currenciesData.status, currencies]);
+    if (status === "success") {
+      const initialSourceCurrency = currencies.find(({ code }) => code === "USD");
+      const initialTargetCurrency = currencies.find(({ code }) => code === "PLN");
+      setSourceCurrency(initialSourceCurrency);
+      setTargetCurrency(initialTargetCurrency);
+      calculateResult(initialSourceCurrency, initialTargetCurrency);
+    }
+  }, [status]);
 
-  const calculateResult = () => {
-    const rate = +targetCurrency.rate / +sourceCurrency.rate;
+  const calculateResult = (source, target) => {
+    const rate = +target.rate / +source.rate;
 
     setResult({
       sourceAmount: +amount,
-      sourceCode: sourceCurrency.code,
+      sourceCode: source.code,
       targetAmount: (+amount * rate).toFixed(2),
-      targetCode: targetCurrency.code,
+      targetCode: target.code,
     });
   };
 
   const onSubmit = (event) => {
     event.preventDefault();
-    calculateResult();
+    calculateResult(sourceCurrency, targetCurrency);
   };
 
   const onKeyPress = (event) => {
@@ -80,10 +76,10 @@ const Form = ({ currenciesData, currencies }) => {
               onKeyPress={onKeyPress}
             />
             <Column>
-              {currenciesData.status === "pending" ? (
+              {status === "pending" ? (
                 <Pending />
-              ) : currenciesData.status === "error" ? (
-                <Error status={currenciesData.status} />
+              ) : status === "error" ? (
+                <Error />
               ) : (
                 <>
                   <Row>
@@ -124,18 +120,19 @@ const Form = ({ currenciesData, currencies }) => {
               type="text"
               id="result"
               disabled={true}
+              onChange={({ target }) => setTargetCurrency(currencies.find(({ code }) => code === target.value))}
               value={`${
-                currenciesData.status === "pending"
-                  ? `Trwa ładowanie danych ...`
-                  : currenciesData.status === "error"
-                  ? ``
-                  : `${result.sourceAmount} ${result.sourceCode} = ${result.targetAmount} ${result.targetCode}`
+                result
+                  ? `${result.sourceAmount} ${result.sourceCode} = ${result.targetAmount} ${result.targetCode}`
+                  : status === "error"
+                  ? `:(`
+                  : `Trwa ładowanie danych ...`
               }`}
             />
           </Wrapper>
         </PrimarySection>
         <Section as="footer">
-          <Footer currenciesData={currenciesData} dateFormat={dateFormat} />
+          <Footer status={status} date={date} dateFormat={dateFormat} />
         </Section>
       </Fieldset>
     </FormField>
