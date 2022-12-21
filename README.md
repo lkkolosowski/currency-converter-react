@@ -36,6 +36,7 @@ Currency converter that can calculate rate of various currencies. Enjoy! 😊
 - Axios
 - Async, await
 - Fetching data from open API
+- styled-components
 
 # Getting Started with Create React App
 
