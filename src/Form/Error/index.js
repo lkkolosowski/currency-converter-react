@@ -3,10 +3,7 @@ import { StyledError } from "./styled";
 const Error = () => {
   return (
     <StyledError>
-      <div>
-        Nie udało się pobrać danych. <br />
-        Sprawdź połączenie z internetem
-      </div>
+      Nie udało się pobrać danych :( Sprawdź połączenie z internetem, odśwież stronę, lub spróbuj poźniej
     </StyledError>
   );
 };
