@@ -3,10 +3,7 @@ import Form from "./Form";
 import { useCurrencies } from "./useCurrencies";
 
 function App() {
-  const currenciesData = useCurrencies();
-  const currencies = currenciesData.currencies;
-  const status = currenciesData.status;
-  const date = currenciesData.date;
+  const { currencies, status, date } = useCurrencies();
 
   return (
     <Container>
