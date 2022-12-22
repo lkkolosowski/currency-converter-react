@@ -10,12 +10,12 @@ export const useCurrencies = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
+        const { data } = await axios.get(
           `https://api.exchangerate.host/latest?symbols=PLN,USD,EUR,JPY,CZK,HRK,CHF,GBP,INR,SEK,KRW,CNY&base=PLN&${Math.floor(
             Math.random() * 9999
           )}`
         );
-        const currencyRatesData = Object.entries(response.data.rates).map(([code, rate]) => ({ code, rate }));
+        const currencyRatesData = Object.entries(data.rates).map(([code, rate]) => ({ code, rate }));
         const mergeArrays = (names, rates) => {
           return names.map((item, i) => {
             if (item.code === rates[i].code) {
@@ -25,7 +25,7 @@ export const useCurrencies = () => {
           });
         };
         setCurrenciesData({
-          date: response.data.date,
+          date: data.date,
           currencies: mergeArrays(currencyNamesData, currencyRatesData),
           status: "success",
         });
