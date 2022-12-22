@@ -28,6 +28,10 @@ const Form = ({ status, currencies, date }) => {
   const calculateResult = (source, target) => {
     const rate = +target.rate / +source.rate;
 
+    if(amount === "") {
+      setAmount("0");
+    };
+
     setResult({
       sourceAmount: +amount,
       sourceCode: source.code,
@@ -50,6 +54,7 @@ const Form = ({ status, currencies, date }) => {
   const swapCurrencies = () => {
     setSourceCurrency(targetCurrency);
     setTargetCurrency(sourceCurrency);
+    calculateResult(targetCurrency, sourceCurrency);
   };
 
   const dateFormat = undefined;
