@@ -28,9 +28,9 @@ const Form = ({ status, currencies, date }) => {
   const calculateResult = (source, target) => {
     const rate = +target.rate / +source.rate;
 
-    if(amount === "") {
+    if (amount === "") {
       setAmount("0");
-    };
+    }
 
     setResult({
       sourceAmount: +amount,
@@ -119,7 +119,7 @@ const Form = ({ status, currencies, date }) => {
                 </>
               )}
             </Column>
-            <SubmitButton content="Przelicz" />
+            <SubmitButton disabled={status === "success" ? false : true} content="Przelicz" />
             <Label htmlFor="result">Kurs wymiany</Label>
             <Input
               type="text"

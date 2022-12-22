@@ -21,4 +21,9 @@ export const Button = styled.button`
   &:active{
     opacity: 0.7;
   }
+
+  &:disabled{
+    cursor: default;
+    opacity: 0.5;
+  }
 `;
