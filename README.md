@@ -12,19 +12,17 @@ Currency converter that can calculate rate of various currencies. Enjoy! 😊
 
 ## Technologies
 
-### CSS
+### HTML/CSS
 - Semantic HTML
-- BEM
 - normalize.css
 - Flex
 - Grid
 
 ### basic JS
-- Objects
-- Array
-- Date method
-- Math.random
+- Arrays/Objects
 - Immutability
+- Math.random
+- Date method
 
 ### React
 - Create React App
