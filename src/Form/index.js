@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Clock from "../Clock";
+import Clock from "./Clock";
 import Input from "./Input";
 import SelectBox from "./SelectBox";
 import SwapButton from "./SwapButton";
