@@ -61,7 +61,7 @@ const names = [
   },
 ];
 
-export const namesData = names.sort((a, b) => {
+export const currencyNamesData = names.sort((a, b) => {
   const nameA = a.code;
   const nameB = b.code;
   if (nameA < nameB) {

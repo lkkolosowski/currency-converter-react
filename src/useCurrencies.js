@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { namesData } from "./namesData";
+import { currencyNamesData } from "./currencyNamesData";
 
 export const useCurrencies = () => {
   const [currenciesData, setCurrenciesData] = useState({
@@ -15,7 +15,7 @@ export const useCurrencies = () => {
             Math.random() * 9999
           )}`
         );
-        const ratesData = Object.entries(response.data.rates).map(([code, rate]) => ({ code, rate }));
+        const currencyRatesData = Object.entries(response.data.rates).map(([code, rate]) => ({ code, rate }));
         const mergeArrays = (names, rates) => {
           return names.map((item, i) => {
             if (item.code === rates[i].code) {
@@ -26,7 +26,7 @@ export const useCurrencies = () => {
         };
         setCurrenciesData({
           date: response.data.date,
-          currencies: mergeArrays(namesData, ratesData),
+          currencies: mergeArrays(currencyNamesData, currencyRatesData),
           status: "success",
         });
       } catch (error) {
