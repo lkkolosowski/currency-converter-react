@@ -8,7 +8,7 @@ https://lkkolosowski.github.io/currency-converter-react/
 
 ## Description
 
-Currency converter that can calculate rate of various currencies. Enjoy! 😊
+This application is a currency calculator that can calculate how much of a particular monetary unit is needed in a given country to obtain its equivalent value. The data is updated in real-time from the European Central Bank. Enjoy 😊
 
 ## Technologies
 
