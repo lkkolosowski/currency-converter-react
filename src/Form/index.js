@@ -17,7 +17,7 @@ const Form = ({ status, currencies, date }) => {
 
   useEffect(() => {
     if (status === "success") {
-      const initialSourceCurrency = currencies.find(({ code }) => code === "USD");
+      const initialSourceCurrency = currencies.find(({ code }) => code === "EUR");
       const initialTargetCurrency = currencies.find(({ code }) => code === "PLN");
       setSourceCurrency(initialSourceCurrency);
       setTargetCurrency(initialTargetCurrency);
@@ -57,7 +57,7 @@ const Form = ({ status, currencies, date }) => {
     calculateResult(targetCurrency, sourceCurrency);
   };
 
-  const dateFormat = undefined;
+  const dateFormat = "pl-PL";
 
   return (
     <FormField onSubmit={onSubmit}>
@@ -130,7 +130,7 @@ const Form = ({ status, currencies, date }) => {
                 result
                   ? `${result.sourceAmount} ${result.sourceCode} = ${result.targetAmount} ${result.targetCode}`
                   : status === "error"
-                  ? `:(`
+                  ? `-`
                   : `Trwa ładowanie danych ...`
               }`}
             />
