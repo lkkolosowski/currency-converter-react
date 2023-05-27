@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import Clock from "./Clock";
 import Input from "./Input";
 import SelectBox from "./SelectBox";
@@ -26,24 +26,6 @@ const Form = ({ status, currencies, date }) => {
   const [amount, setAmount] = useState("1");
   const [result, setResult] = useState("");
 
-  const calculateResult = useCallback(
-    (source, target) => {
-      const rate = +target.rate / +source.rate;
-
-      if (amount === "") {
-        setAmount("0");
-      }
-
-      setResult({
-        sourceAmount: +amount,
-        sourceCode: source.code,
-        targetAmount: (+amount * rate).toFixed(2),
-        targetCode: target.code,
-      });
-    },
-    [amount]
-  );
-
   useEffect(() => {
     if (status === "success") {
       const initialSourceCurrency = currencies.find(
@@ -56,7 +38,22 @@ const Form = ({ status, currencies, date }) => {
       setTargetCurrency(initialTargetCurrency);
       calculateResult(initialSourceCurrency, initialTargetCurrency);
     }
-  }, [status, currencies, calculateResult]);
+  }, [status, currencies]);
+
+  const calculateResult = (source, target) => {
+    const rate = +target.rate / +source.rate;
+
+    if (amount === "") {
+      setAmount("0");
+    }
+
+    setResult({
+      sourceAmount: +amount,
+      sourceCode: source.code,
+      targetAmount: (+amount * rate).toFixed(2),
+      targetCode: target.code,
+    });
+  };
 
   const onSubmit = (event) => {
     event.preventDefault();
