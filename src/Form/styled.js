@@ -76,3 +76,9 @@ export const Column = styled.div`
 `;
 
 export const Row = styled.div([]);
+
+export const MiddleRow = styled.div`
+  @media (max-width: 339px) {
+    transform: translateY(-25%);
+  }
+`;
