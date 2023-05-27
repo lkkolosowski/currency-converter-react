@@ -1,10 +1,10 @@
 import styled from "styled-components";
+import { ReactComponent as Exchange } from "./exchange.svg";
 
 export const Button = styled.a`
   cursor: pointer;
   display: block;
   text-align: center;
-  font-size: 18px;
   line-height: 30px;
   background: transparent;
   border: 0;
@@ -13,11 +13,17 @@ export const Button = styled.a`
   height: 30px;
   width: 30px;
 
-  &:hover{
+  &:hover {
     opacity: 0.8;
   }
 
-  &:active{
+  &:active {
     opacity: 0.7;
   }
+`;
+
+export const ExchangeIcon = styled(Exchange)`
+  width: auto;
+  height: 18px;
+  margin-top: 6px;
 `;
