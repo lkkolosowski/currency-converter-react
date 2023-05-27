@@ -5,9 +5,20 @@ import SelectBox from "./SelectBox";
 import SwapButton from "./SwapButton";
 import SubmitButton from "./SubmitButton";
 import Footer from "./Footer";
-import Pending from "./Pending";
+import Loader from "./Loader";
 import Error from "./Error";
-import { FormField, Fieldset, Section, PrimarySection, Title, Wrapper, Label, Column, Row } from "./styled";
+import {
+  FormField,
+  Fieldset,
+  Section,
+  PrimarySection,
+  Title,
+  Wrapper,
+  Label,
+  Column,
+  Row,
+  MiddleRow,
+} from "./styled";
 
 const Form = ({ status, currencies, date }) => {
   const [sourceCurrency, setSourceCurrency] = useState("");
@@ -17,8 +28,12 @@ const Form = ({ status, currencies, date }) => {
 
   useEffect(() => {
     if (status === "success") {
-      const initialSourceCurrency = currencies.find(({ code }) => code === "EUR");
-      const initialTargetCurrency = currencies.find(({ code }) => code === "PLN");
+      const initialSourceCurrency = currencies.find(
+        ({ code }) => code === "EUR"
+      );
+      const initialTargetCurrency = currencies.find(
+        ({ code }) => code === "PLN"
+      );
       setSourceCurrency(initialSourceCurrency);
       setTargetCurrency(initialTargetCurrency);
       calculateResult(initialSourceCurrency, initialTargetCurrency);
@@ -81,9 +96,7 @@ const Form = ({ status, currencies, date }) => {
               onKeyPress={onKeyPress}
             />
             <Column>
-              {status === "pending" ? (
-                <Pending />
-              ) : status === "error" ? (
+              {status === "error" ? (
                 <Error />
               ) : (
                 <>
@@ -91,41 +104,60 @@ const Form = ({ status, currencies, date }) => {
                     <Label htmlFor="source-currency">Przelicz z</Label>
                     <SelectBox
                       src={`https://flagicons.lipis.dev/flags/4x3/${
-                        sourceCurrency.flag !== undefined ? sourceCurrency.flag : "xx"
+                        status === "pending" ? "eu" : sourceCurrency.flag
                       }.svg`}
                       id="source-currency"
-                      value={sourceCurrency.code}
-                      onChange={({ target }) => setSourceCurrency(currencies.find(({ code }) => code === target.value))}
-                      currencyName={sourceCurrency.name}
+                      value={sourceCurrency.code || "EUR"}
+                      onChange={({ target }) =>
+                        setSourceCurrency(
+                          currencies.find(({ code }) => code === target.value)
+                        )
+                      }
+                      currencyName={sourceCurrency.name || "Euro"}
                       currencies={currencies}
                     />
                   </Row>
-                  <Row>
-                    <SwapButton onClick={swapCurrencies} content={<i className="fas fa-exchange-alt"></i>} />
-                  </Row>
+                  <MiddleRow>
+                    {status === "pending" ? (
+                      <Loader />
+                    ) : (
+                      <SwapButton onClick={swapCurrencies} />
+                    )}
+                  </MiddleRow>
                   <Row>
                     <Label htmlFor="target-currency">Przelicz na</Label>
                     <SelectBox
                       src={`https://flagicons.lipis.dev/flags/4x3/${
-                        targetCurrency.flag !== undefined ? targetCurrency.flag : "xx"
+                        status === "pending" ? "pl" : targetCurrency.flag
                       }.svg`}
                       id="target-currency"
-                      value={targetCurrency.code}
-                      onChange={({ target }) => setTargetCurrency(currencies.find(({ code }) => code === target.value))}
-                      currencyName={targetCurrency.name}
+                      value={targetCurrency.code || "PLN"}
+                      onChange={({ target }) =>
+                        setTargetCurrency(
+                          currencies.find(({ code }) => code === target.value)
+                        )
+                      }
+                      currencyName={targetCurrency.name || "Złoty polski"}
                       currencies={currencies}
                     />
                   </Row>
                 </>
               )}
             </Column>
-            <SubmitButton disabled={status === "success" ? false : true} content="Przelicz" />
+            <SubmitButton
+              disabled={status === "success" ? false : true}
+              content="Przelicz"
+            />
             <Label htmlFor="result">Kurs wymiany</Label>
             <Input
               type="text"
               id="result"
               disabled={true}
-              onChange={({ target }) => setTargetCurrency(currencies.find(({ code }) => code === target.value))}
+              onChange={({ target }) =>
+                setTargetCurrency(
+                  currencies.find(({ code }) => code === target.value)
+                )
+              }
               value={`${
                 result
                   ? `${result.sourceAmount} ${result.sourceCode} = ${result.targetAmount} ${result.targetCode}`
