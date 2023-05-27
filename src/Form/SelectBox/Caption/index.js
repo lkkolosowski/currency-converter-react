@@ -1,7 +1,7 @@
 import { Paragraph } from "./styled";
 
 const Caption = ({ currencyName }) => {
-  return <Paragraph>{currencyName}</Paragraph>;
+  return <Paragraph>{currencyName ? currencyName : ""}</Paragraph>;
 };
 
 export default Caption;
