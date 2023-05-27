@@ -69,7 +69,6 @@ const Form = ({ status, currencies, date }) => {
   const swapCurrencies = () => {
     setSourceCurrency(targetCurrency);
     setTargetCurrency(sourceCurrency);
-    calculateResult(targetCurrency, sourceCurrency);
   };
 
   const dateFormat = "pl-PL";
