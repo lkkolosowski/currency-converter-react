@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const SelectField = styled.select`
   grid-area: select;
   height: 46px;
+  width: 63px;
   border: none;
   outline: none;
   background: none;
