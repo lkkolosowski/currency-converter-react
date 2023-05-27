@@ -6,6 +6,7 @@ export const StyledLoader = styled.div`
   border-top: 3px solid #333;
   width: 24px;
   height: 24px;
+  margin: 3px 23px;
   -webkit-animation: spin 0.5s linear infinite; /* Safari */
   animation: spin 0.5s linear infinite;
 
