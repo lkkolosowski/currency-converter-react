@@ -37,7 +37,7 @@ const Form = ({ status, currencies, date }) => {
       setSourceCurrency(initialSourceCurrency);
       setTargetCurrency(initialTargetCurrency);
       calculateResult(initialSourceCurrency, initialTargetCurrency);
-    }
+    } // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [status, currencies]);
 
   const calculateResult = (source, target) => {
