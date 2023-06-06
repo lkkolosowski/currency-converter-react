@@ -103,7 +103,7 @@ const Form = ({ status, currencies, date }) => {
                     <Label htmlFor="source-currency">Przelicz z</Label>
                     <SelectBox
                       src={`https://flagicons.lipis.dev/flags/4x3/${
-                        status === "pending" ? "eu" : sourceCurrency.flag
+                        status === "success" ? sourceCurrency.flag : "eu"
                       }.svg`}
                       id="source-currency"
                       value={sourceCurrency.code || "EUR"}
@@ -127,7 +127,7 @@ const Form = ({ status, currencies, date }) => {
                     <Label htmlFor="target-currency">Przelicz na</Label>
                     <SelectBox
                       src={`https://flagicons.lipis.dev/flags/4x3/${
-                        status === "pending" ? "pl" : targetCurrency.flag
+                        status === "success" ? targetCurrency.flag : "pl"
                       }.svg`}
                       id="target-currency"
                       value={targetCurrency.code || "PLN"}
