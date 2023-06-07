@@ -7,7 +7,7 @@ export const StyledResult = styled.div`
   justify-content: center;
   height: 50px;
   background-color: #e8f3ee;
-  font-size: 22px;
+  font-size: 20px;
   padding: 0 15px;
   border-radius: 10px;
   border: 1px solid #d3e8df;
