@@ -19,6 +19,7 @@ import {
   Row,
   MiddleRow,
 } from "./styled";
+import Result from "./Result";
 
 const Form = ({ status, currencies, date }) => {
   const [sourceCurrency, setSourceCurrency] = useState("");
@@ -148,21 +149,14 @@ const Form = ({ status, currencies, date }) => {
               content="Przelicz"
             />
             <Label htmlFor="result">Kurs wymiany</Label>
-            <Input
+            <Result
               type="text"
               id="result"
-              disabled={true}
-              onChange={({ target }) =>
-                setTargetCurrency(
-                  currencies.find(({ code }) => code === target.value)
-                )
-              }
-              value={`${
+              disabled={status === "pending" || status === "error"}
+              content={`${
                 result
                   ? `${result.sourceAmount} ${result.sourceCode} = ${result.targetAmount} ${result.targetCode}`
-                  : status === "error"
-                  ? `-`
-                  : `Trwa ładowanie danych ...`
+                  : ``
               }`}
             />
           </Wrapper>
