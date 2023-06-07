@@ -20,10 +20,10 @@ export const StyledResult = styled.div`
       border: 1px solid #e5e5e5;
       background: linear-gradient(
         120deg,
-        #e5e5e5 30%,
-        #f0f0f0 38%,
-        #f0f0f0 40%,
-        #e5e5e5 48%
+        #f0f2f3 30%,
+        #f7f7f7 38%,
+        #f7f7f7 40%,
+        #f0f2f3 48%
       );
       background-size: 200% 100%;
       background-position: 100% 0;
