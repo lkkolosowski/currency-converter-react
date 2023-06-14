@@ -152,12 +152,10 @@ const Form = ({ status, currencies, date }) => {
             <Result
               type="text"
               id="result"
-              disabled={status === "pending" || status === "error"}
-              content={`${
-                result
-                  ? `${result.sourceAmount} ${result.sourceCode} = ${result.targetAmount} ${result.targetCode}`
-                  : ``
-              }`}
+              isLoading={status === "pending"}
+              isFailure={status === "error"}
+              status={status}
+              result={result}
             />
           </Wrapper>
         </PrimarySection>
