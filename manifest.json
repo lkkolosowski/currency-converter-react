@@ -3,13 +3,14 @@
   "name": "Konwerter walut w React.js",
   "icons": [
     {
-      "src": "icon.png",
+      "src": "icon128.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "128x128"
     },
     {
-      "src": "icon.svg",
-      "sizes": "any"
+      "src": "icon512.png",
+      "type": "image/png",
+      "sizes": "512x512"
     }
   ],
   "start_url": ".",
